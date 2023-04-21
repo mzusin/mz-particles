@@ -1,0 +1,54 @@
+{
+  "name": "mz-particles",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "types": "./dist/index.d.ts",
+  "main": "./dist/mz-particles.min.js",
+  "exports": {
+    "import": "./dist/mz-particles.esm.js",
+    "default": "./dist/mz-particles.min.js"
+  },
+  "scripts": {
+    "browser:build": "node run/browser.js",
+    "browser:watch": "node run/browser.js -- watch",
+    "esm:build": "node run/esm.js",
+    "esm:watch": "node run/esm.js -- watch",
+    "example:build": "node run/example.js",
+    "example:watch": "node run/example.js -- watch",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "eslint": "eslint ./src/**",
+    "typescript-declarations": "tsc --emitDeclarationOnly --noEmit false",
+    "docs:website": "http-server ./docs",
+    "docs:build": "node ./src/docs/generator/index.js",
+    "docs:watch": "nodemon ./src/docs/generator/index.js"
+  },
+  "keywords": [],
+  "author": "Miriam Zusin <miriam.zusin@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mzusin/mz-particles"
+  },
+  "license": "SEE LICENSE IN LICENSE.md",
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not op_mini all"
+  ],
+  "nodemonConfig": {
+    "restartable": "rs",
+    "ignore": [
+      ".git",
+      "node_modules/**/node_modules"
+    ],
+    "verbose": false,
+    "watch": [
+      "src/"
+    ],
+    "ext": "js,json,html,css,md,ts,tsx,glsl"
+  },
+  "devDependencies": {
+    "esbuild": "^0.17.17"
+  }
+}

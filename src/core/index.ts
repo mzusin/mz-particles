@@ -17,7 +17,7 @@ const defaults: ISettings = {
     maxSize: 10,
 
     maxConnectionSize: 150,
-    connectionColor: '#2d385b',
+    connectionColor: [45, 56, 91],
 };
 
 /**
@@ -72,24 +72,30 @@ export const particles = (settings?: ISettings) => {
                 fillStyle: options.canvasColor,
             }, ctx);
 
+            // draw the particle connections -------------------------------
             for(let i= 0; i<particles.length; i++){
-                const particle = particles[i];
+                const particle1 = particles[i];
 
                 for(let j= 0; j<particles.length; j++){
                     const particle2 = particles[j];
-                    const distance = v2Distance(particle.center, particle2.center);
+
+                    const distance = v2Distance(particle1.center, particle2.center);
                     if(distance < options.maxConnectionSize){
+
+                        const opacity = options.maxConnectionSize === 0 ? 1 : 1 - distance / options.maxConnectionSize;
+
                         line({
-                            x1: particle.center[0],
-                            y1: particle.center[1],
+                            x1: particle1.center[0],
+                            y1: particle1.center[1],
                             x2: particle2.center[0],
                             y2: particle2.center[1],
-                            strokeStyle: options.connectionColor,
+                            strokeStyle: `rgba(${ options.connectionColor[0] }, ${ options.connectionColor[1] }, ${ options.connectionColor[2] }, ${ opacity } )`,
                         }, ctx);
                     }
                 }
             }
 
+            // draw the updated particles ------------------
             for(let i= 0; i<particles.length; i++){
                 const particle = particles[i];
                 drawParticle(particle, ctx);

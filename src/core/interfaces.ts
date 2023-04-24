@@ -14,7 +14,7 @@ export interface ISettings {
     maxSize?: number;
 
     maxConnectionSize?: number;
-    connectionColor?: string;
+    connectionColor?: [number, number, number]; // [r, g, b]
 }
 
 export interface IParticle {

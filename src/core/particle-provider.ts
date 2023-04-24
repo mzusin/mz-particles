@@ -17,17 +17,17 @@ export const moveParticle = (particle: IParticle, $canvas: HTMLCanvasElement) : 
     const copy = { ...particle };
 
     const [cx, cy] = particle.center;
-    const direction: Vector2 = [...particle.direction];
+    const speed: Vector2 = [...particle.speed];
 
     if(cx > $canvas.width || cx < 0) {
-        direction[0] = -direction[0];
+        speed[0] = -speed[0];
     }
 
     if(cy > $canvas.height || cy < 0) {
-        direction[1] = -direction[1];
+        speed[1] = -speed[1];
     }
 
-    copy.direction = direction;
-    copy.center = [cx + copy.direction[0], cy + copy.direction[1]];
+    copy.speed = speed;
+    copy.center = [cx + copy.speed[0], cy + copy.speed[1]];
     return copy;
 };

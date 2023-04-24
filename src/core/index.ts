@@ -1,23 +1,50 @@
 import { canvas, rect } from 'mz-canvas';
-import { IParticle } from './interfaces';
+import { IParticle, ISettings } from './interfaces';
 import { getRandomHexColor, getRandomInt, animate } from 'mz-math';
 import { drawParticle, moveParticle } from './particle-provider';
 
-export const particles = () => {
+const defaults: ISettings = {
+    canvasWidth: 600,
+    canvasHeight: 600,
+    particlesNumber: 10,
+
+    minSpeed: 0.1,
+    maxSpeed: 5,
+
+    minSize: 10,
+    maxSize: 50,
+};
+
+/**
+ * Merge settings with the defaults
+ */
+const mergeSettings = (defaults: ISettings, settings?: ISettings) : ISettings => {
+    if(!settings) return { ...defaults };
+    return { ...defaults, ...settings };
+};
+
+export const particles = (settings?: ISettings) => {
+
+    const options = mergeSettings(defaults, settings);
 
     const { ctx, $canvas } =canvas({
-        width: 600, // TODO: pass width and height from props
-        height: 600,
+        width: options.canvasWidth,
+        height: options.canvasHeight,
     });
 
-    // create random particles
-    // TODO - the number of particles should be a user setting
+    // create random particles ---------------------------
     const particles: IParticle[] = [];
-    for(let i= 0; i< 10; i++) {
+    for(let i= 0; i< options.particlesNumber; i++) {
         particles.push({
-            center: [getRandomInt(0, $canvas.width), getRandomInt(0, $canvas.height)], // TODO: configure this - [cx, cy]
-            direction: [getRandomInt(1, 10), getRandomInt(1, 10)], // // TODO: configure this - [cx, cy] [direction x, direction y]
-            size: getRandomInt(10, 50), // TODO: configure this
+            center: [
+                getRandomInt(0, $canvas.width),
+                getRandomInt(0, $canvas.height),
+            ],
+            speed: [
+                getRandomInt(options.minSpeed, options.maxSpeed),
+                getRandomInt(options.minSpeed, options.maxSpeed),
+            ],
+            size: getRandomInt(options.minSize, options.maxSize),
             color: getRandomHexColor(), // TODO: configure this
         });
     }

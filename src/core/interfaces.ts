@@ -15,11 +15,16 @@ export interface ISettings {
 
     maxConnectionSize?: number;
     connectionColor?: [number, number, number]; // [r, g, b]
+
+    svgPath?: string;
+    rotate?: boolean;
 }
 
 export interface IParticle {
     center: Vector2; // [cx, cy]
     speed: Vector2; // [speed x, speed y]
-    size: number;
+    size: Vector2;
     color: string;
+    angleRad: number;
+    rotateCounterClockwise: boolean;
 }

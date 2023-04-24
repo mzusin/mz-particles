@@ -61,7 +61,8 @@
     "esbuild": "^0.17.17"
   },
   "dependencies": {
-    "mz-canvas": "^1.0.7",
-    "mz-math": "^3.0.7"
+    "mz-canvas": "^1.0.8",
+    "mz-math": "^3.0.7",
+    "mz-svg": "^1.0.9"
   }
 }

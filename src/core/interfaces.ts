@@ -3,6 +3,7 @@ import { Vector2 } from 'mz-math/types/types';
 export interface ISettings {
     canvasWidth?: number;
     canvasHeight?: number;
+    canvasColor?: string;
 
     particlesNumber: number,
 
@@ -11,6 +12,9 @@ export interface ISettings {
 
     minSize?: number;
     maxSize?: number;
+
+    maxConnectionSize?: number;
+    connectionColor?: string;
 }
 
 export interface IParticle {

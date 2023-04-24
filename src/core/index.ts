@@ -1,4 +1,4 @@
-import { canvas, line, rect } from 'mz-canvas';
+import { canvas, line, rect, setCanvasSize } from 'mz-canvas';
 import { IParticle, ISettings } from './interfaces';
 import { getRandomHexColor, getRandom, animate, v2Distance } from 'mz-math';
 import { drawParticle, moveParticle } from './particle-provider';
@@ -35,12 +35,14 @@ export const particles = (settings?: ISettings) => {
 
     const options = mergeSettings(defaults, settings);
 
-    const { ctx, $canvas } =canvas({
+    const canvasProps = {
         width: options.canvasWidth,
         height: options.canvasHeight,
-    });
+    };
 
-    // create random particles ---------------------------
+    const { ctx, $canvas } = canvas(canvasProps);
+
+    // create random particles -----------------------------
     const particles: IParticle[] = [];
     for(let i= 0; i< options.particlesNumber; i++) {
         particles.push({
@@ -95,6 +97,9 @@ export const particles = (settings?: ISettings) => {
             }
         },
         restartOnResize: true,
+        resizeCallback: () => {
+            setCanvasSize($canvas, ctx, canvasProps);
+        },
     });
 
     // Starts the animation.

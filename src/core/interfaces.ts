@@ -1,8 +1,8 @@
 import { Vector2 } from 'mz-math/types/types';
 
 export interface ISettings {
-    canvasWidth?: number;
-    canvasHeight?: number;
+    canvasWidth?: number|string;
+    canvasHeight?: number|string;
     canvasColor?: string;
 
     particlesNumber: number,

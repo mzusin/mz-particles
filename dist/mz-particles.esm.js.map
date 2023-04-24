@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../src/core/index.ts"],
+  "sourcesContent": ["console.log('here')"],
+  "mappings": ";;;;;;;;AAAA,QAAQ,IAAI,MAAM",
+  "names": []
+}

@@ -17,7 +17,7 @@ export const drawParticle = (particle: IParticle, ctx: CanvasRenderingContext2D,
 
     const [w, h] = particle.size;
 
-    const path = new Path2D(options.svgPathData);
+    const path = new Path2D(particle.svgPathData);
     ctx.save();
 
     const [cx, cy] = [particle.center[0] - w/2, particle.center[1] - h/2];
@@ -67,17 +67,18 @@ export const moveParticle = (particle: IParticle, $canvas: HTMLCanvasElement, op
 export const createParticles = (options: ISettings, $canvas: HTMLCanvasElement) : IParticle[] => {
     const particles: IParticle[] = [];
     let particleSize: Vector2 = [0, 0];
-
-    if(options.svgPathData){
-        const bbox = getPathBBox(options.svgPathData);
-        if(bbox){
-            particleSize = [bbox.w, bbox.h];
-        }
-    }
+    let svgPathData : string|undefined = undefined;
 
     for(let i= 0; i< options.particlesNumber; i++) {
 
-        if(!options.svgPathData){
+        if(options.svgPathData && options.svgPathData.length > 0){
+            svgPathData = getRandomItemFromArray(options.svgPathData);
+            const bbox = getPathBBox(svgPathData);
+            if(bbox){
+                particleSize = [bbox.w, bbox.h];
+            }
+        }
+        else{
             const rnd = getRandom(options.minSize as number, options.maxSize as number);
             particleSize = [rnd, rnd]
         }
@@ -104,6 +105,7 @@ export const createParticles = (options: ISettings, $canvas: HTMLCanvasElement) 
             color,
             angleRad: 0,
             rotateCounterClockwise: getRandomBoolean(),
+            svgPathData,
         });
     }
 

@@ -20,7 +20,7 @@ export interface ISettings {
     maxConnectionSize?: number;
     connectionColor?: [number, number, number]; // [r, g, b]
 
-    svgPathData?: string;
+    svgPathData?: string[];
     rotate?: boolean;
 }
 ```
@@ -49,7 +49,7 @@ export interface ISettings {
 
 - **connectionColor?: [number, number, number]** - The color of the connections between particles. This should be specified as an array of three numbers representing the red, green, and blue components of the color (e.g. [255, 0, 0] for red). If this property is not specified, the default value of **[45, 56, 91]** will be used.
 
-- **svgPathData?: string** - An optional SVG path (path data only) that will be used to draw the particles instead of the default circle shape.
+- **svgPathData?: string**[] - An optional array of strings representing the path data for the SVG shape that will be used to generate the particles. The svgPathData is a sequence of commands and coordinates that describe the shape of the SVG path. If this property is not specified, the circle shape will be used.
 
 - **rotate?: boolean** - A boolean value indicating whether the particles should rotate as they move. If this property is optional.
 

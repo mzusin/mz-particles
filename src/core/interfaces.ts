@@ -17,7 +17,7 @@ export interface ISettings {
     maxConnectionSize?: number;
     connectionColor?: [number, number, number]; // [r, g, b]
 
-    svgPathData?: string;
+    svgPathData?: string[];
     rotate?: boolean;
 }
 
@@ -28,4 +28,5 @@ export interface IParticle {
     color: string;
     angleRad: number;
     rotateCounterClockwise: boolean;
+    svgPathData?: string;
 }

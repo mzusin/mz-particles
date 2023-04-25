@@ -16,8 +16,8 @@
   <link id="favicon-32" rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32.png" />
   <link id="favicon-16" rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16.png" />
 
-  <link rel="stylesheet" href="/css/styles.1682396789141.css" />
-  <!--<link rel="stylesheet" href="/js/index.1682396789141.css" />-->
+  <link rel="stylesheet" href="/css/styles.1682398107866.css" />
+  <!--<link rel="stylesheet" href="/js/index.1682398107866.css" />-->
 
 </head>
 <body class="h-screen flex flex-col font-roboto bg-white dark:bg-slate-900 dark:text-slate-100">
@@ -140,7 +140,7 @@
     maxConnectionSize?: <span class="hljs-built_in">number</span>;
     connectionColor?: [<span class="hljs-built_in">number</span>, <span class="hljs-built_in">number</span>, <span class="hljs-built_in">number</span>]; <span class="hljs-comment">// [r, g, b]</span>
 
-    svgPathData?: <span class="hljs-built_in">string</span>;
+    svgPathData?: <span class="hljs-built_in">string</span>[];
     rotate?: <span class="hljs-built_in">boolean</span>;
 }</code></pre>
 <h2 class="text-3xl mb-8">Properties</h2>
@@ -179,7 +179,7 @@
 <p class="mb-4"><strong class="font-bold">connectionColor?: [number, number, number]</strong> - The color of the connections between particles. This should be specified as an array of three numbers representing the red, green, and blue components of the color (e.g. [255, 0, 0] for red). If this property is not specified, the default value of <strong class="font-bold">[45, 56, 91]</strong> will be used.</p>
 </li>
 <li>
-<p class="mb-4"><strong class="font-bold">svgPathData?: string</strong> - An optional SVG path (path data only) that will be used to draw the particles instead of the default circle shape.</p>
+<p class="mb-4"><strong class="font-bold">svgPathData?: string</strong>[] - An optional array of strings representing the path data for the SVG shape that will be used to generate the particles. The svgPathData is a sequence of commands and coordinates that describe the shape of the SVG path. If this property is not specified, the circle shape will be used.</p>
 </li>
 <li>
 <p class="mb-4"><strong class="font-bold">rotate?: boolean</strong> - A boolean value indicating whether the particles should rotate as they move. If this property is optional.</p>
@@ -240,6 +240,6 @@
   </div>
 </footer>-->
 
-<script src="/js/index.1682396789141.js"></script>
+<script src="/js/index.1682398107866.js"></script>
 </body>
 </html>

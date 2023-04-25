@@ -1,6 +1,6 @@
 import { IParticle, ISettings } from '../interfaces';
 import { circle } from 'mz-canvas';
-import { getRandom, getRandomBoolean, getRandomHexColor, Vector2 } from 'mz-math';
+import { getRandom, getRandomBoolean, getRandomHexColor, getRandomItemFromArray, Vector2 } from 'mz-math';
 import { getPathBBox } from 'mz-svg';
 
 export const drawParticle = (particle: IParticle, ctx: CanvasRenderingContext2D, options: ISettings) => {
@@ -82,6 +82,15 @@ export const createParticles = (options: ISettings, $canvas: HTMLCanvasElement) 
             particleSize = [rnd, rnd]
         }
 
+        let color = '#000';
+
+        if(options.particlesColors && options.particlesColors.length > 0){
+            color = getRandomItemFromArray(options.particlesColors);
+        }
+        else{
+            color = getRandomHexColor();
+        }
+
         particles.push({
             center: [
                 getRandom(0, $canvas.width),
@@ -92,7 +101,7 @@ export const createParticles = (options: ISettings, $canvas: HTMLCanvasElement) 
                 getRandom(options.minSpeed as number, options.maxSpeed as number),
             ],
             size: particleSize,
-            color: getRandomHexColor(), // TODO: configure this
+            color,
             angleRad: 0,
             rotateCounterClockwise: getRandomBoolean(),
         });

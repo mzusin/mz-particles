@@ -16,8 +16,8 @@
   <link id="favicon-32" rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32.png" />
   <link id="favicon-16" rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16.png" />
 
-  <link rel="stylesheet" href="/css/styles.1682395981094.css" />
-  <!--<link rel="stylesheet" href="/js/index.1682395981094.css" />-->
+  <link rel="stylesheet" href="/css/styles.1682396789141.css" />
+  <!--<link rel="stylesheet" href="/js/index.1682396789141.css" />-->
 
 </head>
 <body class="h-screen flex flex-col font-roboto bg-white dark:bg-slate-900 dark:text-slate-100">
@@ -129,6 +129,7 @@
     canvasColor?: <span class="hljs-built_in">string</span>;
 
     <span class="hljs-attr">particlesNumber</span>: <span class="hljs-built_in">number</span>,
+    particlesColors?: <span class="hljs-built_in">string</span>[],
 
     minSpeed?: <span class="hljs-built_in">number</span>;
     maxSpeed?: <span class="hljs-built_in">number</span>;
@@ -139,13 +140,16 @@
     maxConnectionSize?: <span class="hljs-built_in">number</span>;
     connectionColor?: [<span class="hljs-built_in">number</span>, <span class="hljs-built_in">number</span>, <span class="hljs-built_in">number</span>]; <span class="hljs-comment">// [r, g, b]</span>
 
-    svgPath?: <span class="hljs-built_in">string</span>;
+    svgPathData?: <span class="hljs-built_in">string</span>;
     rotate?: <span class="hljs-built_in">boolean</span>;
 }</code></pre>
 <h2 class="text-3xl mb-8">Properties</h2>
 <ul class="list-disc mb-10 ml-2 pl-2 leading-8">
 <li>
 <p class="mb-4"><strong class="font-bold">particlesNumber: number</strong> - The number of particles to be created in the system. If this property is required.</p>
+</li>
+<li>
+<p class="mb-4"><strong class="font-bold">particlesColors?: string[]</strong> - An array of strings representing the possible colors for the particles. The colors can be specified in any valid CSS color format (e.g. “#FFFFFF”, “rgb(255, 0, 0)”, “hsl(120, 100%, 50%)”). If this property is not specified or if the array is empty, the particles will be given random colors.</p>
 </li>
 <li>
 <p class="mb-4"><strong class="font-bold">canvasWidth?: number|string</strong> - The width of the canvas on which the particles will be drawn. This can be specified as a number (in pixels) or as a string with a unit of measurement (e.g. “100%”, “500px”). If this property is not specified, the default value of <strong class="font-bold">600px</strong> will be used.</p>
@@ -175,7 +179,7 @@
 <p class="mb-4"><strong class="font-bold">connectionColor?: [number, number, number]</strong> - The color of the connections between particles. This should be specified as an array of three numbers representing the red, green, and blue components of the color (e.g. [255, 0, 0] for red). If this property is not specified, the default value of <strong class="font-bold">[45, 56, 91]</strong> will be used.</p>
 </li>
 <li>
-<p class="mb-4"><strong class="font-bold">svgPath?: string</strong> - An optional SVG path (path data only) that will be used to draw the particles instead of the default circle shape.</p>
+<p class="mb-4"><strong class="font-bold">svgPathData?: string</strong> - An optional SVG path (path data only) that will be used to draw the particles instead of the default circle shape.</p>
 </li>
 <li>
 <p class="mb-4"><strong class="font-bold">rotate?: boolean</strong> - A boolean value indicating whether the particles should rotate as they move. If this property is optional.</p>
@@ -188,14 +192,22 @@
         <span class="hljs-attr">canvasWidth</span>: <span class="hljs-number">600</span>,
         <span class="hljs-attr">canvasHeight</span>: <span class="hljs-number">600</span>,
         <span class="hljs-attr">canvasColor</span>: <span class="hljs-string">&#x27;rgb(17, 24, 39)&#x27;</span>,
+        
         <span class="hljs-attr">particlesNumber</span>: <span class="hljs-number">40</span>,
+        <span class="hljs-attr">particlesColors</span>: [
+            <span class="hljs-string">&#x27;#CEA262&#x27;</span>, <span class="hljs-string">&#x27;#f3a73a&#x27;</span>, <span class="hljs-string">&#x27;#fffc00&#x27;</span>, <span class="hljs-string">&#x27;#92ccfa&#x27;</span>,
+            <span class="hljs-string">&#x27;#5daed2&#x27;</span>, <span class="hljs-string">&#x27;#366d8c&#x27;</span>
+        ],
+        
         <span class="hljs-attr">minSpeed</span>: <span class="hljs-number">0.5</span>,
         <span class="hljs-attr">maxSpeed</span>: <span class="hljs-number">2</span>,
         <span class="hljs-attr">minSize</span>: <span class="hljs-number">5</span>,
         <span class="hljs-attr">maxSize</span>: <span class="hljs-number">10</span>,
+        
         <span class="hljs-attr">maxConnectionSize</span>: <span class="hljs-number">150</span>,
         <span class="hljs-attr">connectionColor</span>: [<span class="hljs-number">45</span>, <span class="hljs-number">56</span>, <span class="hljs-number">91</span>],
-        <span class="hljs-attr">svgPath</span>: <span class="hljs-string">&#x27;m14.5 21.75-8.52289 4.48075 1.62773-9.49038-6.89516-6.72112 9.52888-1.38462L14.5 0l4.26144 8.63463 9.52888 1.38462-6.89516 6.72112 1.62773 9.49038z&#x27;</span>,
+
+        <span class="hljs-attr">svgPathData</span>: <span class="hljs-string">&#x27;m14.5 21.75-8.52289 4.48075 1.62773-9.49038-6.89516-6.72112 9.52888-1.38462L14.5 0l4.26144 8.63463 9.52888 1.38462-6.89516 6.72112 1.62773 9.49038z&#x27;</span>,
         <span class="hljs-attr">rotate</span>: <span class="hljs-literal">true</span>
     });
 
@@ -228,6 +240,6 @@
   </div>
 </footer>-->
 
-<script src="/js/index.1682395981094.js"></script>
+<script src="/js/index.1682396789141.js"></script>
 </body>
 </html>

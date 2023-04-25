@@ -9,6 +9,7 @@ export interface ISettings {
     canvasColor?: string;
 
     particlesNumber: number,
+    particlesColors?: string[],
 
     minSpeed?: number;
     maxSpeed?: number;
@@ -19,7 +20,7 @@ export interface ISettings {
     maxConnectionSize?: number;
     connectionColor?: [number, number, number]; // [r, g, b]
 
-    svgPath?: string;
+    svgPathData?: string;
     rotate?: boolean;
 }
 ```
@@ -27,6 +28,8 @@ export interface ISettings {
 ## Properties
 
 - **particlesNumber: number** - The number of particles to be created in the system. If this property is required.
+
+- **particlesColors?: string[]** - An array of strings representing the possible colors for the particles. The colors can be specified in any valid CSS color format (e.g. "#FFFFFF", "rgb(255, 0, 0)", "hsl(120, 100%, 50%)"). If this property is not specified or if the array is empty, the particles will be given random colors.
 
 - **canvasWidth?: number|string** - The width of the canvas on which the particles will be drawn. This can be specified as a number (in pixels) or as a string with a unit of measurement (e.g. "100%", "500px"). If this property is not specified, the default value of **600px** will be used.
 
@@ -46,7 +49,7 @@ export interface ISettings {
 
 - **connectionColor?: [number, number, number]** - The color of the connections between particles. This should be specified as an array of three numbers representing the red, green, and blue components of the color (e.g. [255, 0, 0] for red). If this property is not specified, the default value of **[45, 56, 91]** will be used.
 
-- **svgPath?: string** - An optional SVG path (path data only) that will be used to draw the particles instead of the default circle shape.
+- **svgPathData?: string** - An optional SVG path (path data only) that will be used to draw the particles instead of the default circle shape.
 
 - **rotate?: boolean** - A boolean value indicating whether the particles should rotate as they move. If this property is optional.
 
@@ -59,14 +62,22 @@ export interface ISettings {
         canvasWidth: 600,
         canvasHeight: 600,
         canvasColor: 'rgb(17, 24, 39)',
+        
         particlesNumber: 40,
+        particlesColors: [
+            '#CEA262', '#f3a73a', '#fffc00', '#92ccfa',
+            '#5daed2', '#366d8c'
+        ],
+        
         minSpeed: 0.5,
         maxSpeed: 2,
         minSize: 5,
         maxSize: 10,
+        
         maxConnectionSize: 150,
         connectionColor: [45, 56, 91],
-        svgPath: 'm14.5 21.75-8.52289 4.48075 1.62773-9.49038-6.89516-6.72112 9.52888-1.38462L14.5 0l4.26144 8.63463 9.52888 1.38462-6.89516 6.72112 1.62773 9.49038z',
+
+        svgPathData: 'm14.5 21.75-8.52289 4.48075 1.62773-9.49038-6.89516-6.72112 9.52888-1.38462L14.5 0l4.26144 8.63463 9.52888 1.38462-6.89516 6.72112 1.62773 9.49038z',
         rotate: true
     });
 

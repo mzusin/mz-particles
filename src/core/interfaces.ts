@@ -5,7 +5,8 @@ export interface ISettings {
     canvasHeight?: number|string;
     canvasColor?: string;
 
-    particlesNumber: number,
+    particlesNumber: number;
+    particlesColors?: string[];
 
     minSpeed?: number;
     maxSpeed?: number;

@@ -6,6 +6,7 @@ export const DEFAULTS: ISettings = {
     canvasColor: 'rgb(17, 24, 39)',
 
     particlesNumber: 40,
+    particlesColors: [],
 
     minSpeed: 0.5,
     maxSpeed: 2,

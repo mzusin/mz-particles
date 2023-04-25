@@ -1,0 +1,3 @@
+- add the canvas to the specified location, and not only append to doc body.
+- optionally, use ready canvas
+- accept classes and other canvas props

@@ -1,10 +1,10 @@
 {
   "website": {
-    "name": "My Awesome Website",
-    "url": "https://my-website.com"
+    "name": "mzParticles",
+    "url": "https://particles.mzsoft.org"
   },
   "social": {
-    "github": "https://github.com/my-user/my-repo",
-    "email": "my.email@gmail.com"
+    "github": "https://github.com/mzusin/mz-particles",
+    "email": "miriam.zusin@gmail.com"
   }
 }

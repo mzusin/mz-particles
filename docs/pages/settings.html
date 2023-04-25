@@ -116,33 +116,87 @@
           <path d="m7 7 5 5-5 5m6-10 5 5-5 5"/>
         </svg>
 
-    </div><div class="flex flex-col" data-links><a href="/pages/basic-usage.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600 pb-2 text-sky-500">Basic Usage</a><a href="/pages/settings.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600  text-slate-500">Settings</a></div>
+    </div><div class="flex flex-col" data-links><a href="/pages/basic-usage.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600 pb-2 text-slate-500">Basic Usage</a><a href="/pages/settings.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600  text-sky-500">Settings</a></div>
       </div>
     </div>
 
     <div class="p-4 overflow-y-auto h-full md:w-100-350 dark:bg-slate-800">
-      <div class="w-800 max-w-full mx-auto my-10 leading-7 text-lg text-slate-800 dark:text-slate-200"><h2 class="text-3xl mb-8">Basic Usage</h2>
-<p class="mb-4">To use the library, you need to install the module using npm:</p>
-<pre class="hljs p-4 mb-4 rounded-md shadow-xl overflow-auto whitespace-pre-wrap text-base"><code>npm install mz-particles</code></pre>
-<p class="mb-4">Or using Yarn:</p>
-<pre class="hljs p-4 mb-4 rounded-md shadow-xl overflow-auto whitespace-pre-wrap text-base"><code>yarn add mz-particles</code></pre>
-<p class="mb-4">Then you can import any function as follows:</p>
-<pre class="hljs p-4 mb-4 rounded-md shadow-xl overflow-auto whitespace-pre-wrap text-base"><code><span class="hljs-keyword">import</span> { particles } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;mz-particles&#x27;</span>;
+      <div class="w-800 max-w-full mx-auto my-10 leading-7 text-lg text-slate-800 dark:text-slate-200"><h2 class="text-3xl mb-8">Settings</h2>
+<p class="mb-4">The <strong class="font-bold">ISettings</strong> interface defines the particles configuration options. These options include the canvas size and color, particle number, speed and size, connection settings, and more.</p>
+<pre class="hljs p-4 mb-4 rounded-md shadow-xl overflow-auto whitespace-pre-wrap text-base"><code><span class="hljs-keyword">export</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">ISettings</span> {
+    canvasWidth?: <span class="hljs-built_in">number</span>|<span class="hljs-built_in">string</span>;
+    canvasHeight?: <span class="hljs-built_in">number</span>|<span class="hljs-built_in">string</span>;
+    canvasColor?: <span class="hljs-built_in">string</span>;
 
-<span class="hljs-keyword">const</span> $canvas = <span class="hljs-title function_">particles</span>({
-    <span class="hljs-attr">canvasWidth</span>: <span class="hljs-string">&#x27;600px&#x27;</span>,
-    <span class="hljs-attr">canvasHeight</span>: <span class="hljs-string">&#x27;300px&#x27;</span>,
-    <span class="hljs-attr">particlesNumber</span>: <span class="hljs-number">100</span>,
-});
+    <span class="hljs-attr">particlesNumber</span>: <span class="hljs-built_in">number</span>,
 
-<span class="hljs-variable language_">document</span>.<span class="hljs-property">body</span>.<span class="hljs-title function_">append</span>($canvas);</code></pre>
-<p class="mb-4">You can also use it without bundlers. Download the latest <a href="https://github.com/mzusin/mz-particles/blob/main/dist/mz-particles.min.js" class="text-sky-500">mz-particles.min.js</a> script from GitHub and add it to the page as follows:</p>
+    minSpeed?: <span class="hljs-built_in">number</span>;
+    maxSpeed?: <span class="hljs-built_in">number</span>;
+
+    minSize?: <span class="hljs-built_in">number</span>;
+    maxSize?: <span class="hljs-built_in">number</span>;
+
+    maxConnectionSize?: <span class="hljs-built_in">number</span>;
+    connectionColor?: [<span class="hljs-built_in">number</span>, <span class="hljs-built_in">number</span>, <span class="hljs-built_in">number</span>]; <span class="hljs-comment">// [r, g, b]</span>
+
+    svgPath?: <span class="hljs-built_in">string</span>;
+    rotate?: <span class="hljs-built_in">boolean</span>;
+}</code></pre>
+<h2 class="text-3xl mb-8">Properties</h2>
+<ul class="list-disc mb-10 ml-2 pl-2 leading-8">
+<li>
+<p class="mb-4"><strong class="font-bold">particlesNumber: number</strong> - The number of particles to be created in the system. If this property is required.</p>
+</li>
+<li>
+<p class="mb-4"><strong class="font-bold">canvasWidth?: number|string</strong> - The width of the canvas on which the particles will be drawn. This can be specified as a number (in pixels) or as a string with a unit of measurement (e.g. “100%”, “500px”). If this property is not specified, the default value of <strong class="font-bold">600px</strong> will be used.</p>
+</li>
+<li>
+<p class="mb-4"><strong class="font-bold">canvasHeight?: number|string</strong> - The height of the canvas on which the particles will be drawn. This can be specified as a number (in pixels) or as a string with a unit of measurement (e.g. “100%”, “500px”). If this property is not specified, the default value of <strong class="font-bold">600px</strong> will be used.</p>
+</li>
+<li>
+<p class="mb-4"><strong class="font-bold">canvasColor?: string</strong> - The background color of the canvas. This should be specified as a string in CSS format (e.g. “#FFFFFF” for white, “#000000” for black). If this property is optional.</p>
+</li>
+<li>
+<p class="mb-4"><strong class="font-bold">minSpeed?: number</strong> - The minimum speed that particles can travel at. This value should be specified in pixels per frame. If this property is not specified, the default value of <strong class="font-bold">0.5</strong> will be used.</p>
+</li>
+<li>
+<p class="mb-4"><strong class="font-bold">maxSpeed?: number</strong> - The maximum speed that particles can travel at. This value should be specified in pixels per frame. If this property is not specified, the default value of <strong class="font-bold">2</strong> will be used.</p>
+</li>
+<li>
+<p class="mb-4"><strong class="font-bold">minSize?: number</strong> - The minimum size of particles. This value should be specified in pixels. If this property is not specified, the default value of <strong class="font-bold">5</strong> will be used.</p>
+</li>
+<li>
+<p class="mb-4"><strong class="font-bold">maxSize?: number</strong> - The maximum size of particles. This value should be specified in pixels. If this property is not specified, the default value of <strong class="font-bold">10</strong> will be used.</p>
+</li>
+<li>
+<p class="mb-4"><strong class="font-bold">maxConnectionSize?: number</strong> - The maximum distance at which particles will be connected by lines. This value should be specified in pixels. If this property is not specified, the default value of <strong class="font-bold">150px</strong> will be used.</p>
+</li>
+<li>
+<p class="mb-4"><strong class="font-bold">connectionColor?: [number, number, number]</strong> - The color of the connections between particles. This should be specified as an array of three numbers representing the red, green, and blue components of the color (e.g. [255, 0, 0] for red). If this property is not specified, the default value of <strong class="font-bold">[45, 56, 91]</strong> will be used.</p>
+</li>
+<li>
+<p class="mb-4"><strong class="font-bold">svgPath?: string</strong> - An optional SVG path (path data only) that will be used to draw the particles instead of the default circle shape.</p>
+</li>
+<li>
+<p class="mb-4"><strong class="font-bold">rotate?: boolean</strong> - A boolean value indicating whether the particles should rotate as they move. If this property is optional.</p>
+</li>
+</ul>
+<h2 class="text-3xl mb-8">Example Usage</h2>
 <pre class="hljs p-4 mb-4 rounded-md shadow-xl overflow-auto whitespace-pre-wrap text-base"><code><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;mz-particles.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript">
     <span class="hljs-keyword">const</span> $canvas = <span class="hljs-variable language_">window</span>.<span class="hljs-title function_">particles</span>({
-        <span class="hljs-attr">canvasWidth</span>: <span class="hljs-string">&#x27;100vw&#x27;</span>,
-        <span class="hljs-attr">canvasHeight</span>: <span class="hljs-string">&#x27;100vh&#x27;</span>,
-        <span class="hljs-attr">particlesNumber</span>: <span class="hljs-number">100</span>,
+        <span class="hljs-attr">canvasWidth</span>: <span class="hljs-number">600</span>,
+        <span class="hljs-attr">canvasHeight</span>: <span class="hljs-number">600</span>,
+        <span class="hljs-attr">canvasColor</span>: <span class="hljs-string">&#x27;rgb(17, 24, 39)&#x27;</span>,
+        <span class="hljs-attr">particlesNumber</span>: <span class="hljs-number">40</span>,
+        <span class="hljs-attr">minSpeed</span>: <span class="hljs-number">0.5</span>,
+        <span class="hljs-attr">maxSpeed</span>: <span class="hljs-number">2</span>,
+        <span class="hljs-attr">minSize</span>: <span class="hljs-number">5</span>,
+        <span class="hljs-attr">maxSize</span>: <span class="hljs-number">10</span>,
+        <span class="hljs-attr">maxConnectionSize</span>: <span class="hljs-number">150</span>,
+        <span class="hljs-attr">connectionColor</span>: [<span class="hljs-number">45</span>, <span class="hljs-number">56</span>, <span class="hljs-number">91</span>],
+        <span class="hljs-attr">svgPath</span>: <span class="hljs-string">&#x27;m14.5 21.75-8.52289 4.48075 1.62773-9.49038-6.89516-6.72112 9.52888-1.38462L14.5 0l4.26144 8.63463 9.52888 1.38462-6.89516 6.72112 1.62773 9.49038z&#x27;</span>,
+        <span class="hljs-attr">rotate</span>: <span class="hljs-literal">true</span>
     });
 
     <span class="hljs-variable language_">document</span>.<span class="hljs-property">body</span>.<span class="hljs-title function_">append</span>($canvas);
@@ -151,19 +205,17 @@
 
       <div class="w-800 max-w-full mx-auto grid  gap-8 items-center text-slate-500">
 <div class="flex justify-between items-start border border-slate-200 rounded p-4">
-  
-  <div class="flex flex-col justify-center">
-    <div class="mb-2 text-sm text-slate-300">Next</div>
-    <a href="/pages/settings.html" title="" class="hover:text-blue-500">Settings</a>
-  </div>
-  
-  <a href="/pages/settings.html" title="" class="mr-4 hover:text-blue-500">
+  <a href="/pages/basic-usage.html" title="" class="mr-4 hover:text-blue-500">
     <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24">
-     <path stroke="none" d="M0 0h24v24H0z"/>
-     <path d="M5 12h14m-6 6 6-6m-6-6 6 6"/>
+    <path stroke="none" d="M0 0h24v24H0z"/>
+    <path d="M5 12h14M5 12l6 6m-6-6 6-6"/>
   </svg>
   </a>
-</div>  
+  <div class="flex flex-col items-end justify-center">
+    <div class="mb-2 text-sm text-slate-300">Previous</div>
+    <a href="/pages/basic-usage.html" title="" class="hover:text-blue-500">Basic Usage</a>
+  </div>
+</div>      
     </div>
     </div>
 

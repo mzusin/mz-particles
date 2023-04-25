@@ -1,2 +1,3 @@
 https://particles.mzsoft.org
 https://particles.mzsoft.org/pages/basic-usage.html
+https://particles.mzsoft.org/pages/settings.html

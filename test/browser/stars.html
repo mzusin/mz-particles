@@ -20,7 +20,7 @@
 
   <script src="../../dist/mz-particles.min.js"></script>
   <script>
-      window.particles({
+      const $canvas = window.particles({
           canvasWidth: '100vw',
           canvasHeight: '100vh',
           particlesNumber: 100,
@@ -29,6 +29,8 @@
           rotate: true,
           svgPath: 'm14.5 21.75-8.52289 4.48075 1.62773-9.49038-6.89516-6.72112 9.52888-1.38462L14.5 0l4.26144 8.63463 9.52888 1.38462-6.89516 6.72112 1.62773 9.49038z',
       });
+
+      document.body.append($canvas);
   </script>
 </body>
 </html>

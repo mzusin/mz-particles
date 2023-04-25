@@ -5,7 +5,7 @@ import { getPathBBox } from 'mz-svg';
 
 export const drawParticle = (particle: IParticle, ctx: CanvasRenderingContext2D, options: ISettings) => {
 
-    if(!options.svgPath){
+    if(!options.svgPathData){
         circle({
             cx: particle.center[0],
             cy: particle.center[1],
@@ -17,7 +17,7 @@ export const drawParticle = (particle: IParticle, ctx: CanvasRenderingContext2D,
 
     const [w, h] = particle.size;
 
-    const path = new Path2D(options.svgPath);
+    const path = new Path2D(options.svgPathData);
     ctx.save();
 
     const [cx, cy] = [particle.center[0] - w/2, particle.center[1] - h/2];
@@ -68,15 +68,17 @@ export const createParticles = (options: ISettings, $canvas: HTMLCanvasElement) 
     const particles: IParticle[] = [];
     let particleSize: Vector2 = [0, 0];
 
-    if(options.svgPath){
-        const bbox = getPathBBox(options.svgPath);
-        particleSize = [bbox.w, bbox.h];
+    if(options.svgPathData){
+        const bbox = getPathBBox(options.svgPathData);
+        if(bbox){
+            particleSize = [bbox.w, bbox.h];
+        }
     }
 
     for(let i= 0; i< options.particlesNumber; i++) {
 
-        if(!options.svgPath){
-            const rnd = getRandom(options.minSize, options.maxSize);
+        if(!options.svgPathData){
+            const rnd = getRandom(options.minSize as number, options.maxSize as number);
             particleSize = [rnd, rnd]
         }
 
@@ -86,8 +88,8 @@ export const createParticles = (options: ISettings, $canvas: HTMLCanvasElement) 
                 getRandom(0, $canvas.height),
             ],
             speed: [
-                getRandom(options.minSpeed, options.maxSpeed),
-                getRandom(options.minSpeed, options.maxSpeed),
+                getRandom(options.minSpeed as number, options.maxSpeed as number),
+                getRandom(options.minSpeed as number, options.maxSpeed as number),
             ],
             size: particleSize,
             color: getRandomHexColor(), // TODO: configure this

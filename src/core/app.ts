@@ -6,13 +6,16 @@ import { canvas, rect, setCanvasSize } from 'mz-canvas';
 import { animate } from 'mz-math';
 
 const redraw = (options: ISettings, $canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D, particles: IParticle[]) => {
-    rect({
-        x: 0,
-        y: 0,
-        w: $canvas.width,
-        h: $canvas.height,
-        fillStyle: options.canvasColor,
-    }, ctx);
+
+    if(options.canvasColor){
+        rect({
+            x: 0,
+            y: 0,
+            w: $canvas.width,
+            h: $canvas.height,
+            fillStyle: options.canvasColor,
+        }, ctx);
+    }
 
     // draw the particle connections -------------------------------
     drawConnections(options, ctx, particles);
@@ -33,8 +36,8 @@ export const init = (settings?: ISettings) => {
     const options = mergeSettings(DEFAULTS, settings);
 
     const canvasProps = {
-        width: options.canvasWidth,
-        height: options.canvasHeight,
+        width: options.canvasWidth as number|string,
+        height: options.canvasHeight as number|string,
     };
 
     const { ctx, $canvas } = canvas(canvasProps);
@@ -47,6 +50,7 @@ export const init = (settings?: ISettings) => {
         // A function to be called on each animation frame.
         // It receives an object of type IAnimationResult.
         callback: () => {
+            if(!ctx) return;
             redraw(options, $canvas, ctx, particles);
         },
         restartOnResize: true,
@@ -58,5 +62,6 @@ export const init = (settings?: ISettings) => {
     // Starts the animation.
     api.start();
 
-    document.body.append($canvas);
+    // document.body.append($canvas);
+    return $canvas;
 };

@@ -5,7 +5,72 @@
 ## Documentation 🔖
 ### Getting Started 
 - [Basic Usage](https://particles.mzsoft.org/pages/basic-usage.html)
+- [Settings](https://particles.mzsoft.org/pages/settings.html)
 ------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

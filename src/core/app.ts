@@ -82,6 +82,7 @@ export const init = (settings?: ISettings) => {
         restartOnResize: true,
         resizeCallback: () => {
             setCanvasSize($canvas, ctx, canvasProps);
+            redraw(options, state);
         },
     });
 

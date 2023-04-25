@@ -1,6 +1,7 @@
 import { ISettings, IState } from '../interfaces';
 import { line } from 'mz-canvas';
 import { v2Distance } from 'mz-math';
+import { rgbaToString } from './colors-provider';
 
 /**
  * Draw connection between the shapes.
@@ -27,7 +28,12 @@ export const drawConnections = (options: ISettings, state: IState) => {
                     y1: particle1.center[1],
                     x2: particle2.center[0],
                     y2: particle2.center[1],
-                    strokeStyle: `rgba(${ connectionRgbColor[0] }, ${ connectionRgbColor[1] }, ${ connectionRgbColor[2] }, ${ opacity } )`,
+                    strokeStyle: rgbaToString(
+                        connectionRgbColor[0],
+                        connectionRgbColor[1],
+                        connectionRgbColor[2],
+                        opacity,
+                    ),
                 }, ctx);
             }
         }

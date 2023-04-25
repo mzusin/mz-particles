@@ -3,18 +3,40 @@ import { circle } from 'mz-canvas';
 import { getRandom, getRandomBoolean, getRandomHexColor, getRandomItemFromArray, Vector2 } from 'mz-math';
 import { getPathBBox } from 'mz-svg';
 import tinycolor from 'tinycolor2';
+import { rgbaToString } from './colors-provider';
 
 export const drawParticle = (particle: IParticle, options: ISettings, state: IState) => {
 
     const { ctx } = state;
 
     if(!options.svgPathData){
+
+        ctx.save();
+
+        const { size } = particle;
+        let r = size[0];
+
+        if(options.scaleInOut){
+            r *= particle.scale;
+        }
+
+        const fillStyle = options.fadeInOut ?
+            rgbaToString(
+                particle.rgbaColor[0],
+                particle.rgbaColor[1],
+                particle.rgbaColor[2],
+                particle.opacity
+            ) :
+            particle.color;
+
         circle({
             cx: particle.center[0],
             cy: particle.center[1],
-            r: particle.size[0],
-            fillStyle: particle.color,
+            r,
+            fillStyle,
         }, ctx);
+
+        ctx.restore();
         return;
     }
 
@@ -46,7 +68,12 @@ export const drawParticle = (particle: IParticle, options: ISettings, state: ISt
     }
 
     if(options.fadeInOut){
-        ctx.fillStyle = `rgba(${ particle.rgbaColor[0] }, ${ particle.rgbaColor[1] }, ${ particle.rgbaColor[2] }, ${ particle.opacity } )`;
+        ctx.fillStyle = rgbaToString(
+            particle.rgbaColor[0],
+            particle.rgbaColor[1],
+            particle.rgbaColor[2],
+            particle.opacity,
+        );
     }
     else{
         ctx.fillStyle = particle.color;

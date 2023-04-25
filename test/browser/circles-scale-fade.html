@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+    <style>
+        html, body{
+            padding: 0;
+            margin: 0;
+        }
+
+        canvas {
+            display: block;
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+
+  <script src="../../dist/mz-particles.min.js"></script>
+  <script>
+      document.body.append(window.particles({
+          canvasWidth: '100vw',
+          canvasHeight: '100vh',
+
+          canvasColor: 'rgb(17, 24, 39)',
+          particlesNumber: 100,
+
+          particlesColors: [
+              '#CEA262', '#f3a73a', '#fffc00', '#92ccfa',
+              '#5daed2', '#366d8c'
+          ],
+
+          // scale effect -------
+          scaleInOut: true,
+          maxScale: 1.5,
+          minScale: 0.7,
+          scaleStep: 0.005,
+
+          // fade in/out effect
+          fadeInOut: true,
+      }));
+  </script>
+</body>
+</html>

@@ -2,6 +2,7 @@ import { IParticle, ISettings } from '../interfaces';
 import { circle } from 'mz-canvas';
 import { getRandom, getRandomBoolean, getRandomHexColor, getRandomItemFromArray, Vector2 } from 'mz-math';
 import { getPathBBox } from 'mz-svg';
+import tinycolor from 'tinycolor2';
 
 export const drawParticle = (particle: IParticle, ctx: CanvasRenderingContext2D, options: ISettings) => {
 
@@ -42,7 +43,13 @@ export const drawParticle = (particle: IParticle, ctx: CanvasRenderingContext2D,
         ctx.translate(-w / 2, -h / 2);
     }
 
-    ctx.fillStyle = particle.color;
+    if(options.fadeInOut){
+        ctx.fillStyle = `rgba(${ particle.rgbaColor[0] }, ${ particle.rgbaColor[1] }, ${ particle.rgbaColor[2] }, ${ particle.opacity } )`;
+    }
+    else{
+        ctx.fillStyle = particle.color;
+    }
+
     ctx.fill(path);
     ctx.restore();
 };
@@ -93,6 +100,25 @@ export const moveParticle = (particle: IParticle, $canvas: HTMLCanvasElement, op
         }
     }
 
+    if(options.fadeInOut){
+        if(copy.opacityDirection > 0){
+            copy.opacity += options.opacityStep as number;
+        }
+        else{
+            copy.opacity -= options.opacityStep as number;
+        }
+
+        if(copy.opacity > 1){
+            copy.scale = 1;
+            copy.opacityDirection = -1;
+        }
+
+        if(copy.opacity < 0){
+            copy.opacity = 0;
+            copy.opacityDirection = 1;
+        }
+    }
+
     return copy;
 };
 
@@ -127,6 +153,9 @@ export const createParticles = (options: ISettings, $canvas: HTMLCanvasElement) 
             color = getRandomHexColor();
         }
 
+        const tColor = tinycolor(color);
+        const tColorRGB = tColor.toRgb();
+
         particles.push({
             center: [
                 getRandom(0, $canvas.width),
@@ -137,7 +166,9 @@ export const createParticles = (options: ISettings, $canvas: HTMLCanvasElement) 
                 getRandom(options.minSpeed as number, options.maxSpeed as number),
             ],
             size: particleSize,
+
             color,
+            rgbaColor: [tColorRGB.r, tColorRGB.g, tColorRGB.b, tColorRGB.a],
 
             // SVG path props ----------
             svgPathData,
@@ -150,6 +181,10 @@ export const createParticles = (options: ISettings, $canvas: HTMLCanvasElement) 
             // scale effect ---------------
             scale: ((options.minScale as number) + (options.maxScale as number)) / 2,
             scaleDirection: getRandomItemFromArray([-1, 1]),
+
+            // fade in/out effect ---------
+            opacity: getRandom(0, 1),
+            opacityDirection: getRandomItemFromArray([-1, 1]),
         });
     }
 

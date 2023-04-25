@@ -1,6 +1,7 @@
 import { Vector2 } from 'mz-math';
 
 export interface ISettings {
+
     // canvas settings -------------------
     canvasWidth?: number|string;
     canvasHeight?: number|string;
@@ -19,7 +20,7 @@ export interface ISettings {
     // connection lines -------------------
     connected?: boolean;
     maxConnectionSize?: number;
-    connectionColor?: [number, number, number]; // [r, g, b]
+    connectionColor?: string;
 
     // SVG shapes -------------------------
     svgPathData?: string[];
@@ -32,6 +33,10 @@ export interface ISettings {
     maxScale?: number;
     minScale?: number;
     scaleStep?: number;
+
+    // fade effect -------------------
+    fadeInOut?: boolean;
+    opacityStep?: number;
 }
 
 export interface IParticle {
@@ -39,6 +44,7 @@ export interface IParticle {
     speed: Vector2; // [speed x, speed y]
     size: Vector2;
     color: string;
+    rgbaColor: [number, number, number, number];
 
     // SVG path props ------------
     svgPathData?: string;
@@ -51,4 +57,12 @@ export interface IParticle {
     // scale effect ---------------
     scale: number;
     scaleDirection: number;
+
+    // fade in/out ---------------
+    opacity: number;
+    opacityDirection: number;
+}
+
+export interface IState {
+    connectionRgbColor: [number, number, number, number];
 }

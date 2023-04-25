@@ -1,11 +1,12 @@
-import { IParticle, ISettings } from './interfaces';
+import { IParticle, ISettings, IState } from './interfaces';
 import { drawConnections } from './domain/connections-provider';
 import { createParticles, drawParticle, moveParticle } from './domain/particles-provider';
 import { DEFAULTS, mergeSettings } from './domain/settings-provider';
 import { canvas, rect, setCanvasSize } from 'mz-canvas';
 import { animate } from 'mz-math';
+import tinycolor from 'tinycolor2';
 
-const redraw = (options: ISettings, $canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D, particles: IParticle[]) => {
+const redraw = (options: ISettings, $canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D, particles: IParticle[], state: IState) => {
 
     rect({
         x: 0,
@@ -27,7 +28,7 @@ const redraw = (options: ISettings, $canvas: HTMLCanvasElement, ctx: CanvasRende
 
     // draw the particle connections -------------------------------
     if(options.connected){
-        drawConnections(options, ctx, particles);
+        drawConnections(options, ctx, particles, state);
     }
 
     // draw the updated particles ------------------
@@ -45,6 +46,14 @@ export const init = (settings?: ISettings) => {
 
     const options = mergeSettings(DEFAULTS, settings);
 
+    // parse connection lines color ----------
+    const connectionsColor = tinycolor(options.connectionColor);
+    const tConnectionsRGB = connectionsColor.toRgb();
+
+    const state: IState = {
+        connectionRgbColor: [tConnectionsRGB.r, tConnectionsRGB.g, tConnectionsRGB.b, tConnectionsRGB.a],
+    };
+
     const canvasProps = {
         width: options.canvasWidth as number|string,
         height: options.canvasHeight as number|string,
@@ -61,7 +70,7 @@ export const init = (settings?: ISettings) => {
         // It receives an object of type IAnimationResult.
         callback: () => {
             if(!ctx) return;
-            redraw(options, $canvas, ctx, particles);
+            redraw(options, $canvas, ctx, particles, state);
         },
         restartOnResize: true,
         resizeCallback: () => {

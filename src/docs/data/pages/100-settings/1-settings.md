@@ -22,7 +22,7 @@ export interface ISettings {
     // connection lines -------------------
     connected?: boolean;
     maxConnectionSize?: number;
-    connectionColor?: [number, number, number]; // [r, g, b]
+    connectionColor?: string;
 
     // SVG shapes -------------------------
     svgPathData?: string[];
@@ -35,6 +35,10 @@ export interface ISettings {
     maxScale?: number;
     minScale?: number;
     scaleStep?: number;
+
+    // fade in/out effect -------------------
+    fadeInOut?: boolean;
+    opacityStep?: number;
 }
 ```
 
@@ -60,7 +64,7 @@ export interface ISettings {
         maxSize: 30,
         
         maxConnectionSize: 150,
-        connectionColor: [45, 56, 91],
+        connectionColor: 'rgb(45, 56, 91)',
 
         svgPathData: 'm14.5 21.75-8.52289 4.48075 1.62773-9.49038-6.89516-6.72112 9.52888-1.38462L14.5 0l4.26144 8.63463 9.52888 1.38462-6.89516 6.72112 1.62773 9.49038z',
         rotate: true

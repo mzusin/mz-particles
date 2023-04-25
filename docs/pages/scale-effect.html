@@ -16,8 +16,8 @@
   <link id="favicon-32" rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32.png" />
   <link id="favicon-16" rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16.png" />
 
-  <link rel="stylesheet" href="/css/styles.1682405868751.css" />
-  <!--<link rel="stylesheet" href="/js/index.1682405868751.css" />-->
+  <link rel="stylesheet" href="/css/styles.1682426928102.css" />
+  <!--<link rel="stylesheet" href="/js/index.1682426928102.css" />-->
 
 </head>
 <body class="h-screen flex flex-col font-roboto bg-white dark:bg-slate-900 dark:text-slate-100">
@@ -130,7 +130,7 @@
           <path d="m7 7 5 5-5 5m6-10 5 5-5 5"/>
         </svg>
 
-    </div><div class="flex flex-col" data-links><a href="/pages/settings.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600 pb-2 text-slate-500">Settings</a><a href="/pages/canvas-settings.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600 pb-2 text-slate-500">Canvas Settings</a><a href="/pages/particles-settings.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600 pb-2 text-slate-500">Particles Settings</a><a href="/pages/connecting-lines.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600 pb-2 text-slate-500">Connecting Lines</a><a href="/pages/rotation-effect.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600 pb-2 text-slate-500">Rotation Effect</a><a href="/pages/scale-effect.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600  text-sky-500">Scale Effect</a></div>
+    </div><div class="flex flex-col" data-links><a href="/pages/settings.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600 pb-2 text-slate-500">Settings</a><a href="/pages/canvas-settings.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600 pb-2 text-slate-500">Canvas Settings</a><a href="/pages/particles-settings.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600 pb-2 text-slate-500">Particles Settings</a><a href="/pages/connecting-lines.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600 pb-2 text-slate-500">Connecting Lines</a><a href="/pages/rotation-effect.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600 pb-2 text-slate-500">Rotation Effect</a><a href="/pages/scale-effect.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600 pb-2 text-sky-500">Scale Effect</a><a href="/pages/fade-effect.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600  text-slate-500">Fade Effect</a></div>
       </div>
     </div>
 
@@ -152,6 +152,14 @@
 </ul>
 <h2 class="text-3xl mb-8">Usage Example</h2>
 <pre class="hljs p-4 mb-4 rounded-md shadow-xl overflow-auto whitespace-pre-wrap text-base"><code><span class="hljs-keyword">const</span> $canvas = <span class="hljs-variable language_">window</span>.<span class="hljs-title function_">particles</span>({
+
+  <span class="hljs-comment">// scale effect -----------</span>
+  <span class="hljs-attr">scaleInOut</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">maxScale</span>: <span class="hljs-number">1.5</span>,
+  <span class="hljs-attr">minScale</span>: <span class="hljs-number">0.7</span>,
+  <span class="hljs-attr">scaleStep</span>: <span class="hljs-number">0.005</span>,
+
+  <span class="hljs-comment">// canvas settings ---------    </span>
   <span class="hljs-attr">canvasWidth</span>: <span class="hljs-string">&#x27;100vw&#x27;</span>,
   <span class="hljs-attr">canvasHeight</span>: <span class="hljs-string">&#x27;100vh&#x27;</span>,
   <span class="hljs-attr">canvasColor</span>: <span class="hljs-string">&#x27;rgb(17, 24, 39)&#x27;</span>,
@@ -171,18 +179,12 @@
       <span class="hljs-string">&#x27;M14.5 21.75 4.24695 24.75305 7.25 14.5 4.24695 4.24695 14.5 7.25l10.25305-3.00305L21.75 14.5l3.00305 10.25305z&#x27;</span>,
       <span class="hljs-string">&#x27;m14.5 21.75-5.54891 6.14625.42239-8.26973-8.26973.42239L7.25 14.5 1.10375 8.95109l8.26973.42239-.42239-8.26973L14.5 7.25l5.54891-6.14625-.42239 8.26973 8.26973-.42239L21.75 14.5l6.14625 5.54891-8.26973-.42239.42239 8.26973z&#x27;</span>,
   ],
-
-  <span class="hljs-comment">// scale effect -------</span>
-  <span class="hljs-attr">scaleInOut</span>: <span class="hljs-literal">true</span>,
-  <span class="hljs-attr">maxScale</span>: <span class="hljs-number">1.5</span>,
-  <span class="hljs-attr">minScale</span>: <span class="hljs-number">0.7</span>,
-  <span class="hljs-attr">scaleStep</span>: <span class="hljs-number">0.005</span>,
 });
 
 <span class="hljs-variable language_">document</span>.<span class="hljs-property">body</span>.<span class="hljs-title function_">append</span>($canvas);</code></pre>
 </div>
 
-      <div class="w-800 max-w-full mx-auto grid  gap-8 items-center text-slate-500">
+      <div class="w-800 max-w-full mx-auto grid lg:grid-cols-2 gap-8 items-center text-slate-500">
 <div class="flex justify-between items-start border border-slate-200 rounded p-4">
   <a href="/pages/rotation-effect.html" title="" class="mr-4 hover:text-blue-500">
     <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24">
@@ -195,6 +197,21 @@
     <a href="/pages/rotation-effect.html" title="" class="hover:text-blue-500">Rotation Effect</a>
   </div>
 </div>      
+    
+<div class="flex justify-between items-start border border-slate-200 rounded p-4">
+  
+  <div class="flex flex-col justify-center">
+    <div class="mb-2 text-sm text-slate-300">Next</div>
+    <a href="/pages/fade-effect.html" title="" class="hover:text-blue-500">Fade Effect</a>
+  </div>
+  
+  <a href="/pages/fade-effect.html" title="" class="mr-4 hover:text-blue-500">
+    <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24">
+     <path stroke="none" d="M0 0h24v24H0z"/>
+     <path d="M5 12h14m-6 6 6-6m-6-6 6 6"/>
+  </svg>
+  </a>
+</div>  
     </div>
     </div>
 
@@ -207,6 +224,6 @@
   </div>
 </footer>-->
 
-<script src="/js/index.1682405868751.js"></script>
+<script src="/js/index.1682426928102.js"></script>
 </body>
 </html>

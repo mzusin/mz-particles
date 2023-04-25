@@ -18,12 +18,15 @@ export const DEFAULTS: ISettings = {
     // connection lines ------------
     connected: true,
     maxConnectionSize: 150,
-    connectionColor: [45, 56, 91],
+    connectionColor: 'rgb(45, 56, 91)',
 
     // scale effect
     maxScale: 2,
     minScale: 0.5,
     scaleStep: 0.01,
+
+    // fade in/out effect ---------
+    opacityStep: 0.001,
 };
 
 /**

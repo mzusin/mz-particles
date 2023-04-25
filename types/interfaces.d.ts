@@ -4,20 +4,38 @@ export interface ISettings {
     canvasHeight?: number | string;
     canvasColor?: string;
     particlesNumber: number;
-    minSpeed?: number;
-    maxSpeed?: number;
+    particlesColors?: string[];
     minSize?: number;
     maxSize?: number;
+    minSpeed?: number;
+    maxSpeed?: number;
+    connected?: boolean;
     maxConnectionSize?: number;
-    connectionColor?: [number, number, number];
-    svgPathData?: string;
+    connectionColor?: string;
+    svgPathData?: string[];
     rotate?: boolean;
+    scaleInOut?: boolean;
+    maxScale?: number;
+    minScale?: number;
+    scaleStep?: number;
+    fadeInOut?: boolean;
+    opacityStep?: number;
 }
 export interface IParticle {
     center: Vector2;
     speed: Vector2;
     size: Vector2;
     color: string;
+    rgbaColor: [number, number, number, number];
+    svgPathData?: string;
+    svgSize?: Vector2;
     angleRad: number;
     rotateCounterClockwise: boolean;
+    scale: number;
+    scaleDirection: number;
+    opacity: number;
+    opacityDirection: number;
+}
+export interface IState {
+    connectionRgbColor: [number, number, number, number];
 }

@@ -1,14 +1,13 @@
-import { IParticle, ISettings } from '../interfaces';
+import { IParticle, ISettings, IState } from '../interfaces';
 import { line } from 'mz-canvas';
 import { v2Distance } from 'mz-math';
 
 /**
  * Draw connection between the shapes.
  */
-export const drawConnections = (options: ISettings, ctx: CanvasRenderingContext2D, particles: IParticle[]) => {
+export const drawConnections = (options: ISettings, ctx: CanvasRenderingContext2D, particles: IParticle[], state: IState) => {
 
     const maxConnectionSize = options.maxConnectionSize as number;
-    const connectionColor = options.connectionColor as [number, number, number];
 
     for(let i= 0; i<particles.length; i++){
         const particle1 = particles[i];
@@ -26,7 +25,7 @@ export const drawConnections = (options: ISettings, ctx: CanvasRenderingContext2
                     y1: particle1.center[1],
                     x2: particle2.center[0],
                     y2: particle2.center[1],
-                    strokeStyle: `rgba(${ connectionColor[0] }, ${ connectionColor[1] }, ${ connectionColor[2] }, ${ opacity } )`,
+                    strokeStyle: `rgba(${ state.connectionRgbColor[0] }, ${ state.connectionRgbColor[1] }, ${ state.connectionRgbColor[2] }, ${ opacity } )`,
                 }, ctx);
             }
         }

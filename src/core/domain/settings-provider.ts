@@ -1,10 +1,6 @@
 import { ISettings } from '../interfaces';
 
 export const DEFAULTS: ISettings = {
-    // canvas settings --------------
-    canvasWidth: 600,
-    canvasHeight: 600,
-
     particlesNumber: 40,
     particlesColors: [],
 
@@ -16,7 +12,9 @@ export const DEFAULTS: ISettings = {
 
     // connection lines ------------
     connected: true,
-    maxConnectionSize: 150,
+    connectionSizeD: 0.1,
+    connectionSizeT: 0.15,
+    connectionSizeM: 0.15,
     connectionColor: 'rgb(45, 56, 91)',
 
     // scale effect

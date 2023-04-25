@@ -2,7 +2,7 @@ import { Vector2 } from 'mz-math';
 
 export interface ISettings {
 
-    $placeholder: HTMLElement;
+    $placeholder?: HTMLElement;
 
     // canvas settings -------------------
     canvasColor?: string;
@@ -19,7 +19,9 @@ export interface ISettings {
 
     // connection lines -------------------
     connected?: boolean;
-    maxConnectionSize?: number;
+    connectionSizeD?: number;
+    connectionSizeT?: number;
+    connectionSizeM?: number;
     connectionColor?: string;
 
     // SVG shapes -------------------------

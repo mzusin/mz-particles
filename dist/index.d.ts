@@ -12,7 +12,9 @@ declare module 'mz-particles' {
         minSpeed?: number;
         maxSpeed?: number;
         connected?: boolean;
-        maxConnectionSize?: number;
+        connectionSizeD?: number;
+        connectionSizeT?: number;
+        connectionSizeM?: number;
         connectionColor?: string;
         svgPathData?: string[];
         rotate?: boolean;

@@ -1,7 +1,6 @@
 import { Vector2 } from 'mz-math';
 export interface ISettings {
-    canvasWidth?: number | string;
-    canvasHeight?: number | string;
+    $placeholder?: HTMLElement;
     canvasColor?: string;
     particlesNumber: number;
     particlesColors?: string[];
@@ -10,7 +9,9 @@ export interface ISettings {
     minSpeed?: number;
     maxSpeed?: number;
     connected?: boolean;
-    maxConnectionSize?: number;
+    connectionSizeD?: number;
+    connectionSizeT?: number;
+    connectionSizeM?: number;
     connectionColor?: string;
     svgPathData?: string[];
     rotate?: boolean;

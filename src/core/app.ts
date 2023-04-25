@@ -84,6 +84,8 @@ export const init = (settings?: ISettings) => {
         },
         restartOnResize: true,
         resizeCallback: () => {
+            if(!options.$placeholder) return;
+
             const rect = options.$placeholder.getBoundingClientRect();
             $canvas.width = rect.width;
             $canvas.height = rect.height;

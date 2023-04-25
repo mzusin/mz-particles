@@ -1,6 +1,10 @@
 https://particles.mzsoft.org
 https://particles.mzsoft.org/pages/basic-usage.html
-https://particles.mzsoft.org/pages/settings.html
 https://particles.mzsoft.org/pages/circles.html
 https://particles.mzsoft.org/pages/stars.html
 https://particles.mzsoft.org/pages/triangles.html
+https://particles.mzsoft.org/pages/settings.html
+https://particles.mzsoft.org/pages/canvas-settings.html
+https://particles.mzsoft.org/pages/particles-settings.html
+https://particles.mzsoft.org/pages/connecting-lines.html
+https://particles.mzsoft.org/pages/rotation-effect.html

@@ -3,14 +3,58 @@
 **mzParticles** is a TypeScript library for creating particle effects on canvas.
 
 ## Documentation 🔖
-### Getting Started 
+### Main 
 - [Basic Usage](https://particles.mzsoft.org/pages/basic-usage.html)
-- [Settings](https://particles.mzsoft.org/pages/settings.html)
 ### Shapes 
 - [Circles](https://particles.mzsoft.org/pages/circles.html)
 - [Stars](https://particles.mzsoft.org/pages/stars.html)
 - [Triangles](https://particles.mzsoft.org/pages/triangles.html)
+### Settings 
+- [Settings](https://particles.mzsoft.org/pages/settings.html)
+- [Canvas Settings](https://particles.mzsoft.org/pages/canvas-settings.html)
+- [Particles Settings](https://particles.mzsoft.org/pages/particles-settings.html)
+- [Connecting Lines](https://particles.mzsoft.org/pages/connecting-lines.html)
+- [Rotation Effect](https://particles.mzsoft.org/pages/rotation-effect.html)
 ------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

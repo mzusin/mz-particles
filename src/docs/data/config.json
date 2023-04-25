@@ -1,0 +1,10 @@
+{
+  "website": {
+    "name": "My Awesome Website",
+    "url": "https://my-website.com"
+  },
+  "social": {
+    "github": "https://github.com/my-user/my-repo",
+    "email": "my.email@gmail.com"
+  }
+}

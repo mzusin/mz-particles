@@ -1,7 +1,7 @@
 {
   "name": "mz-particles",
   "version": "1.0.0",
-  "description": "",
+  "description": "TypeScript library for creating particle effects on canvas.",
   "type": "module",
   "types": "./dist/index.d.ts",
   "main": "./dist/mz-particles.min.js",
@@ -60,7 +60,8 @@
     "ext": "js,json,html,css,md,ts,tsx,glsl"
   },
   "devDependencies": {
-    "esbuild": "^0.17.17"
+    "esbuild": "^0.17.17",
+    "markdown-documentation-maker": "^1.0.22"
   },
   "dependencies": {
     "mz-canvas": "^1.0.8",

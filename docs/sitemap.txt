@@ -1,0 +1,5 @@
+https://my-website.com
+https://my-website.com/pages/basic-usage.html
+https://my-website.com/pages/nodejs.html
+https://my-website.com/pages/width-height-and-border-radius.html
+https://my-website.com/pages/colors.html

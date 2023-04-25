@@ -10,6 +10,8 @@
     "default": "./dist/mz-particles.min.js"
   },
   "scripts": {
+    "build:all": "npm run browser:build & npm run esm:build",
+    "watch:all": "npm run browser:watch & npm run esm:watch",
     "browser:build": "node run/browser.js",
     "browser:watch": "node run/browser.js -- watch",
     "esm:build": "node run/esm.js",
@@ -62,7 +64,7 @@
   },
   "dependencies": {
     "mz-canvas": "^1.0.8",
-    "mz-math": "^3.0.7",
-    "mz-svg": "^1.0.9"
+    "mz-math": "^3.0.8",
+    "mz-svg": "^1.0.10"
   }
 }

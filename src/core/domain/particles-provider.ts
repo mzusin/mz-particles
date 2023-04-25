@@ -1,6 +1,7 @@
-import { IParticle, ISettings } from './interfaces';
+import { IParticle, ISettings } from '../interfaces';
 import { circle } from 'mz-canvas';
-import { Vector2 } from 'mz-math';
+import { getRandom, getRandomBoolean, getRandomHexColor, Vector2 } from 'mz-math';
+import { getPathBBox } from 'mz-svg';
 
 export const drawParticle = (particle: IParticle, ctx: CanvasRenderingContext2D, options: ISettings) => {
 
@@ -37,8 +38,8 @@ export const moveParticle = (particle: IParticle, $canvas: HTMLCanvasElement, op
 
     const copy = { ...particle };
 
-    const [cx, cy] = particle.center;
-    const speed: Vector2 = [...particle.speed];
+    const [cx, cy]: Vector2 = particle.center;
+    const speed: Vector2 = [...particle.speed] as Vector2;
 
     if(cx > $canvas.width || cx < 0) {
         speed[0] = -speed[0];
@@ -61,4 +62,39 @@ export const moveParticle = (particle: IParticle, $canvas: HTMLCanvasElement, op
     }
 
     return copy;
+};
+
+export const createParticles = (options: ISettings, $canvas: HTMLCanvasElement) : IParticle[] => {
+    const particles: IParticle[] = [];
+    let particleSize: Vector2 = [0, 0];
+
+    if(options.svgPath){
+        const bbox = getPathBBox(options.svgPath);
+        particleSize = [bbox.w, bbox.h];
+    }
+
+    for(let i= 0; i< options.particlesNumber; i++) {
+
+        if(!options.svgPath){
+            const rnd = getRandom(options.minSize, options.maxSize);
+            particleSize = [rnd, rnd]
+        }
+
+        particles.push({
+            center: [
+                getRandom(0, $canvas.width),
+                getRandom(0, $canvas.height),
+            ],
+            speed: [
+                getRandom(options.minSpeed, options.maxSpeed),
+                getRandom(options.minSpeed, options.maxSpeed),
+            ],
+            size: particleSize,
+            color: getRandomHexColor(), // TODO: configure this
+            angleRad: 0,
+            rotateCounterClockwise: getRandomBoolean(),
+        });
+    }
+
+    return particles;
 };

@@ -2,9 +2,17 @@
 
 **mzParticles** is a TypeScript library for creating particle effects on canvas.
 
-
 https://user-images.githubusercontent.com/128969497/234193978-3ca7e010-a3e4-4705-a98e-1c1750d15688.mov
 
+## Features ✔️
+- Based on [TypeScript](https://www.typescriptlang.org/).
+- Supports rotation effect.
+- Supports fade in/out effect.
+- Supports scale in/out effect.
+- Optional connecting lines between particles.
+- Allows to combine various effects together.
+- Can provide SVG path data as particle shapes.
+- Size, color and shape of particles are customizable.
 
 ## Documentation 🔖
 ### Main 

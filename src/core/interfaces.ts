@@ -23,7 +23,10 @@ export interface ISettings {
 
     // SVG shapes -------------------------
     svgPathData?: string[];
+
+    // effects ---------------
     rotate?: boolean;
+    scaleInOut?: boolean;
 }
 
 export interface IParticle {

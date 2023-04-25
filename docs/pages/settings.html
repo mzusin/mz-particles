@@ -16,8 +16,8 @@
   <link id="favicon-32" rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32.png" />
   <link id="favicon-16" rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16.png" />
 
-  <link rel="stylesheet" href="/css/styles.1682403244923.css" />
-  <!--<link rel="stylesheet" href="/js/index.1682403244923.css" />-->
+  <link rel="stylesheet" href="/css/styles.1682403640606.css" />
+  <!--<link rel="stylesheet" href="/js/index.1682403640606.css" />-->
 
 </head>
 <body class="h-screen flex flex-col font-roboto bg-white dark:bg-slate-900 dark:text-slate-100">
@@ -131,19 +131,23 @@
       <div class="w-800 max-w-full mx-auto my-10 leading-7 text-lg text-slate-800 dark:text-slate-200"><h2 class="text-3xl mb-8">Settings</h2>
 <p class="mb-4">The <strong class="font-bold">ISettings</strong> interface defines the particles configuration options. These options include the canvas size and color, particle number, speed and size, connection settings, and more.</p>
 <pre class="hljs p-4 mb-4 rounded-md shadow-xl overflow-auto whitespace-pre-wrap text-base"><code><span class="hljs-keyword">export</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">ISettings</span> {
+    <span class="hljs-comment">// canvas settings -------------------</span>
     canvasWidth?: <span class="hljs-built_in">number</span>|<span class="hljs-built_in">string</span>;
     canvasHeight?: <span class="hljs-built_in">number</span>|<span class="hljs-built_in">string</span>;
     canvasColor?: <span class="hljs-built_in">string</span>;
 
+    <span class="hljs-comment">// particles props ------------------</span>
     <span class="hljs-attr">particlesNumber</span>: <span class="hljs-built_in">number</span>,
     particlesColors?: <span class="hljs-built_in">string</span>[],
-
-    minSpeed?: <span class="hljs-built_in">number</span>;
-    maxSpeed?: <span class="hljs-built_in">number</span>;
-
     minSize?: <span class="hljs-built_in">number</span>;
     maxSize?: <span class="hljs-built_in">number</span>;
 
+    <span class="hljs-comment">// particles speed ------------------</span>
+    minSpeed?: <span class="hljs-built_in">number</span>;
+    maxSpeed?: <span class="hljs-built_in">number</span>;
+
+    <span class="hljs-comment">// connection lines -------------------</span>
+    connected?: <span class="hljs-built_in">boolean</span>;
     maxConnectionSize?: <span class="hljs-built_in">number</span>;
     connectionColor?: [<span class="hljs-built_in">number</span>, <span class="hljs-built_in">number</span>, <span class="hljs-built_in">number</span>]; <span class="hljs-comment">// [r, g, b]</span>
 
@@ -178,6 +182,9 @@
 </li>
 <li>
 <p class="mb-4"><strong class="font-bold">maxSize?: number</strong> - The maximum size of particles. This value should be specified in pixels. If this property is not specified, the default value of <strong class="font-bold">10</strong> will be used.</p>
+</li>
+<li>
+<p class="mb-4"><strong class="font-bold">connected?: boolean;</strong> - If true, particles will be connected by lines. The default value is <strong class="font-bold">true</strong>.</p>
 </li>
 <li>
 <p class="mb-4"><strong class="font-bold">maxConnectionSize?: number</strong> - The maximum distance at which particles will be connected by lines. This value should be specified in pixels. If this property is not specified, the default value of <strong class="font-bold">150px</strong> will be used.</p>
@@ -262,6 +269,6 @@
   </div>
 </footer>-->
 
-<script src="/js/index.1682403244923.js"></script>
+<script src="/js/index.1682403640606.js"></script>
 </body>
 </html>

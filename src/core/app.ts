@@ -26,7 +26,9 @@ const redraw = (options: ISettings, $canvas: HTMLCanvasElement, ctx: CanvasRende
     }
 
     // draw the particle connections -------------------------------
-    drawConnections(options, ctx, particles);
+    if(options.connected){
+        drawConnections(options, ctx, particles);
+    }
 
     // draw the updated particles ------------------
     for(let i= 0; i<particles.length; i++){

@@ -20,6 +20,7 @@ import { particles } from 'mz-particles';
 const $canvas = particles({
     canvasWidth: '600px',
     canvasHeight: '300px',
+    canvasColor: 'rgb(17, 24, 39)',
     particlesNumber: 100,
 });
 
@@ -34,6 +35,7 @@ You can also use it without bundlers. Download the latest [mz-particles.min.js](
     const $canvas = window.particles({
         canvasWidth: '100vw',
         canvasHeight: '100vh',
+        canvasColor: 'rgb(17, 24, 39)',
         particlesNumber: 100,
     });
 

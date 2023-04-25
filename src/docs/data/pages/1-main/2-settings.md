@@ -4,19 +4,23 @@ The **ISettings** interface defines the particles configuration options. These o
 
 ```ts
 export interface ISettings {
+    // canvas settings -------------------
     canvasWidth?: number|string;
     canvasHeight?: number|string;
     canvasColor?: string;
 
+    // particles props ------------------
     particlesNumber: number,
     particlesColors?: string[],
-
-    minSpeed?: number;
-    maxSpeed?: number;
-
     minSize?: number;
     maxSize?: number;
 
+    // particles speed ------------------
+    minSpeed?: number;
+    maxSpeed?: number;
+
+    // connection lines -------------------
+    connected?: boolean;
     maxConnectionSize?: number;
     connectionColor?: [number, number, number]; // [r, g, b]
 
@@ -44,6 +48,8 @@ export interface ISettings {
 - **minSize?: number** - The minimum size of particles. This value should be specified in pixels. If this property is not specified, the default value of **5** will be used.
 
 - **maxSize?: number** - The maximum size of particles. This value should be specified in pixels. If this property is not specified, the default value of **10** will be used.
+
+- **connected?: boolean;** - If true, particles will be connected by lines. The default value is **true**.
 
 - **maxConnectionSize?: number** - The maximum distance at which particles will be connected by lines. This value should be specified in pixels. If this property is not specified, the default value of **150px** will be used.
 

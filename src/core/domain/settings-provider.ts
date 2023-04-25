@@ -1,6 +1,7 @@
 import { ISettings } from '../interfaces';
 
 export const DEFAULTS: ISettings = {
+    // canvas settings --------------
     canvasWidth: 600,
     canvasHeight: 600,
     // canvasColor: 'rgb(17, 24, 39)',
@@ -14,6 +15,8 @@ export const DEFAULTS: ISettings = {
     minSize: 5,
     maxSize: 10,
 
+    // connection lines ------------
+    connected: true,
     maxConnectionSize: 150,
     connectionColor: [45, 56, 91],
 };

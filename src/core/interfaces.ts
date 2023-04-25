@@ -1,22 +1,27 @@
 import { Vector2 } from 'mz-math';
 
 export interface ISettings {
+    // canvas settings -------------------
     canvasWidth?: number|string;
     canvasHeight?: number|string;
     canvasColor?: string;
 
+    // particles props -------------------
     particlesNumber: number;
     particlesColors?: string[];
-
-    minSpeed?: number;
-    maxSpeed?: number;
-
     minSize?: number;
     maxSize?: number;
 
+    // speed ------------------------------
+    minSpeed?: number;
+    maxSpeed?: number;
+
+    // connection lines -------------------
+    connected?: boolean;
     maxConnectionSize?: number;
     connectionColor?: [number, number, number]; // [r, g, b]
 
+    // SVG shapes -------------------------
     svgPathData?: string[];
     rotate?: boolean;
 }

@@ -19,6 +19,11 @@ export const DEFAULTS: ISettings = {
     connected: true,
     maxConnectionSize: 150,
     connectionColor: [45, 56, 91],
+
+    // scale effect
+    maxScale: 2,
+    minScale: 0.5,
+    scaleStep: 0.01,
 };
 
 /**

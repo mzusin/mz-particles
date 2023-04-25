@@ -26,7 +26,15 @@ export interface ISettings {
 
     // SVG shapes -------------------------
     svgPathData?: string[];
+
+    // rotation effect ---------------
     rotate?: boolean;
+
+    // scale effect ------------------
+    scaleInOut?: boolean;
+    maxScale?: number;
+    minScale?: number;
+    scaleStep?: number;
 }
 ```
 

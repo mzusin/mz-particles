@@ -19,7 +19,18 @@ https://user-images.githubusercontent.com/128969497/234193978-3ca7e010-a3e4-4705
 - [Particles Settings](https://particles.mzsoft.org/pages/particles-settings.html)
 - [Connecting Lines](https://particles.mzsoft.org/pages/connecting-lines.html)
 - [Rotation Effect](https://particles.mzsoft.org/pages/rotation-effect.html)
+- [Scale Effect](https://particles.mzsoft.org/pages/scale-effect.html)
 ------------------------------
+
+
+
+
+
+
+
+
+
+
 
 
 

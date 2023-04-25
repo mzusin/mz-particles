@@ -8,3 +8,4 @@ https://particles.mzsoft.org/pages/canvas-settings.html
 https://particles.mzsoft.org/pages/particles-settings.html
 https://particles.mzsoft.org/pages/connecting-lines.html
 https://particles.mzsoft.org/pages/rotation-effect.html
+https://particles.mzsoft.org/pages/scale-effect.html

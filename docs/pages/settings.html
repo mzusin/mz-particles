@@ -16,8 +16,8 @@
   <link id="favicon-32" rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32.png" />
   <link id="favicon-16" rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16.png" />
 
-  <link rel="stylesheet" href="/css/styles.1682404096787.css" />
-  <!--<link rel="stylesheet" href="/js/index.1682404096787.css" />-->
+  <link rel="stylesheet" href="/css/styles.1682405868751.css" />
+  <!--<link rel="stylesheet" href="/js/index.1682405868751.css" />-->
 
 </head>
 <body class="h-screen flex flex-col font-roboto bg-white dark:bg-slate-900 dark:text-slate-100">
@@ -130,7 +130,7 @@
           <path d="m7 7 5 5-5 5m6-10 5 5-5 5"/>
         </svg>
 
-    </div><div class="flex flex-col" data-links><a href="/pages/settings.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600 pb-2 text-sky-500">Settings</a><a href="/pages/canvas-settings.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600 pb-2 text-slate-500">Canvas Settings</a><a href="/pages/particles-settings.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600 pb-2 text-slate-500">Particles Settings</a><a href="/pages/connecting-lines.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600 pb-2 text-slate-500">Connecting Lines</a><a href="/pages/rotation-effect.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600  text-slate-500">Rotation Effect</a></div>
+    </div><div class="flex flex-col" data-links><a href="/pages/settings.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600 pb-2 text-sky-500">Settings</a><a href="/pages/canvas-settings.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600 pb-2 text-slate-500">Canvas Settings</a><a href="/pages/particles-settings.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600 pb-2 text-slate-500">Particles Settings</a><a href="/pages/connecting-lines.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600 pb-2 text-slate-500">Connecting Lines</a><a href="/pages/rotation-effect.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600 pb-2 text-slate-500">Rotation Effect</a><a href="/pages/scale-effect.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600  text-slate-500">Scale Effect</a></div>
       </div>
     </div>
 
@@ -160,7 +160,15 @@
 
     <span class="hljs-comment">// SVG shapes -------------------------</span>
     svgPathData?: <span class="hljs-built_in">string</span>[];
+
+    <span class="hljs-comment">// rotation effect ---------------</span>
     rotate?: <span class="hljs-built_in">boolean</span>;
+
+    <span class="hljs-comment">// scale effect ------------------</span>
+    scaleInOut?: <span class="hljs-built_in">boolean</span>;
+    maxScale?: <span class="hljs-built_in">number</span>;
+    minScale?: <span class="hljs-built_in">number</span>;
+    scaleStep?: <span class="hljs-built_in">number</span>;
 }</code></pre>
 <h2 class="text-3xl mb-8">Example Usage</h2>
 <pre class="hljs p-4 mb-4 rounded-md shadow-xl overflow-auto whitespace-pre-wrap text-base"><code><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;mz-particles.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
@@ -232,6 +240,6 @@
   </div>
 </footer>-->
 
-<script src="/js/index.1682404096787.js"></script>
+<script src="/js/index.1682405868751.js"></script>
 </body>
 </html>

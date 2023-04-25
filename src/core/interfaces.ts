@@ -24,9 +24,14 @@ export interface ISettings {
     // SVG shapes -------------------------
     svgPathData?: string[];
 
-    // effects ---------------
+    // rotation effect ---------------
     rotate?: boolean;
+
+    // scale effect ------------------
     scaleInOut?: boolean;
+    maxScale?: number;
+    minScale?: number;
+    scaleStep?: number;
 }
 
 export interface IParticle {
@@ -35,11 +40,15 @@ export interface IParticle {
     size: Vector2;
     color: string;
 
-    // rotation props ------------
-    angleRad: number;
-    rotateCounterClockwise: boolean;
-
     // SVG path props ------------
     svgPathData?: string;
     svgSize?: Vector2;
+
+    // rotation effect ------------
+    angleRad: number;
+    rotateCounterClockwise: boolean;
+
+    // scale effect ---------------
+    scale: number;
+    scaleDirection: number;
 }

@@ -36,6 +36,12 @@ export const drawParticle = (particle: IParticle, ctx: CanvasRenderingContext2D,
         ctx.translate(-w / 2, -h / 2);
     }
 
+    if(options.scaleInOut){
+        ctx.translate(w / 2, h / 2);
+        ctx.scale(particle.scale, particle.scale);
+        ctx.translate(-w / 2, -h / 2);
+    }
+
     ctx.fillStyle = particle.color;
     ctx.fill(path);
     ctx.restore();
@@ -68,6 +74,25 @@ export const moveParticle = (particle: IParticle, $canvas: HTMLCanvasElement, op
         }
     }
 
+    if(options.scaleInOut){
+        if(copy.scaleDirection > 0){
+            copy.scale += options.scaleStep as number;
+        }
+        else{
+            copy.scale -= options.scaleStep as number;
+        }
+
+        if(copy.scale > (options.maxScale as number)){
+            copy.scale = options.maxScale as number;
+            copy.scaleDirection = -1;
+        }
+
+        if(copy.scale < (options.minScale as number)){
+            copy.scale = options.minScale as number;
+            copy.scaleDirection = 1;
+        }
+    }
+
     return copy;
 };
 
@@ -89,8 +114,6 @@ export const createParticles = (options: ISettings, $canvas: HTMLCanvasElement) 
                 svgSize = [
                     particleSize[0] / bbox.w,
                     particleSize[1] / bbox.h,
-                    // bbox.w / particleSize[0],
-                    // bbox.h / particleSize[1],
                 ];
             }
         }
@@ -115,10 +138,18 @@ export const createParticles = (options: ISettings, $canvas: HTMLCanvasElement) 
             ],
             size: particleSize,
             color,
-            angleRad: 0,
-            rotateCounterClockwise: getRandomBoolean(),
+
+            // SVG path props ----------
             svgPathData,
             svgSize,
+
+            // rotation effect ------------
+            angleRad: 0,
+            rotateCounterClockwise: getRandomBoolean(),
+
+            // scale effect ---------------
+            scale: ((options.minScale as number) + (options.maxScale as number)) / 2,
+            scaleDirection: getRandomItemFromArray([-1, 1]),
         });
     }
 

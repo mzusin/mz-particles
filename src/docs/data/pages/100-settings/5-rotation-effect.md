@@ -1,3 +1,35 @@
 # Rotation Effect
 
 - **rotate?: boolean** - A boolean value indicating whether the particles should rotate as they move. If this property is optional.
+
+## Usage Example
+
+```ts
+const $canvas = window.particles({
+  canvasWidth: '100vw',
+  canvasHeight: '100vh',
+  canvasColor: 'rgb(17, 24, 39)',
+  particlesNumber: 100,
+
+  minSize: 10,
+  maxSize: 30,
+
+  particlesColors: [
+      '#CEA262', '#f3a73a', '#fffc00', '#92ccfa',
+      '#5daed2', '#366d8c'
+  ],
+
+  // stars -------------
+  svgPathData: [
+      'm14.5 21.75-8.52289 4.48075 1.62773-9.49038-6.89516-6.72112 9.52888-1.38462L14.5 0l4.26144 8.63463 9.52888 1.38462-6.89516 6.72112 1.62773 9.49038z',
+      'M14.5 21.75 4.24695 24.75305 7.25 14.5 4.24695 4.24695 14.5 7.25l10.25305-3.00305L21.75 14.5l3.00305 10.25305z',
+      'm14.5 21.75-5.54891 6.14625.42239-8.26973-8.26973.42239L7.25 14.5 1.10375 8.95109l8.26973.42239-.42239-8.26973L14.5 7.25l5.54891-6.14625-.42239 8.26973 8.26973-.42239L21.75 14.5l6.14625 5.54891-8.26973-.42239.42239 8.26973z',
+  ],
+
+  // effects ------------
+  rotate: true,
+
+});
+
+document.body.append($canvas);
+```

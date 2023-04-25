@@ -13,6 +13,7 @@ https://user-images.githubusercontent.com/128969497/234193978-3ca7e010-a3e4-4705
 - Allows to combine various effects together.
 - Can provide SVG path data as particle shapes.
 - Size, color and shape of particles are customizable.
+- The library handles window resizes.
 
 ## Documentation 🔖
 ### Main 

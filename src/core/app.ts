@@ -2,7 +2,7 @@ import { ISettings, IState } from './interfaces';
 import { drawConnections } from './domain/connections-provider';
 import { createParticles, drawParticle, moveParticle } from './domain/particles-provider';
 import { DEFAULTS, mergeSettings } from './domain/settings-provider';
-import { canvas, rect, setCanvasSize } from 'mz-canvas';
+import { canvas, IRectProps, rect, setCanvasSize } from 'mz-canvas';
 import { animate } from 'mz-math';
 import tinycolor from 'tinycolor2';
 
@@ -10,23 +10,22 @@ const redraw = (options: ISettings, state: IState) => {
 
     const { $canvas, ctx } = state;
 
-    rect({
+    // set bg color or clear the canvas ---------------------------
+    const rectProps: IRectProps = {
         x: 0,
         y: 0,
         w: $canvas.width,
         h: $canvas.height,
-        clear: true,
-    }, ctx);
+    };
 
     if(options.canvasColor){
-        rect({
-            x: 0,
-            y: 0,
-            w: $canvas.width,
-            h: $canvas.height,
-            fillStyle: options.canvasColor,
-        }, ctx);
+        rectProps.fillStyle = options.canvasColor;
     }
+    else{
+        rectProps.clear = true;
+    }
+
+    rect(rectProps, ctx);
 
     // draw the particle connections -------------------------------
     if(options.connected){

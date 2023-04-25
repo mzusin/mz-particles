@@ -21,7 +21,7 @@ export const drawConnections = (options: ISettings, state: IState) => {
             const distance = v2Distance(particle1.center, particle2.center);
             if(distance < maxConnectionSize){
 
-                const opacity = options.maxConnectionSize === 0 ? 1 : 1 - distance / maxConnectionSize;
+                const opacity = options.maxConnectionSize === 0 ? 1 : (1 - distance / maxConnectionSize);
 
                 line({
                     x1: particle1.center[0],

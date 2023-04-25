@@ -5,20 +5,35 @@ import { getPathBBox } from 'mz-svg';
 import tinycolor from 'tinycolor2';
 import { rgbaToString } from './colors-provider';
 
+/**
+ * This method is called once on the particles' initialization.
+ */
 export const createParticles = (options: ISettings, state: IState) : IParticle[] => {
 
     const { $canvas } = state;
 
     const particles: IParticle[] = [];
+
     let svgPathData: string|undefined = undefined;
     let svgSize: Vector2|undefined = undefined;
 
+    const minSize = options.minSize as number;
+    const maxSize = options.maxSize as number;
+    const minSpeed = options.minSpeed as number;
+    const maxSpeed = options.maxSpeed as number;
+    const maxScale = options.maxScale as number;
+
+    const minScale = options.minScale as number;
+
     for(let i= 0; i< options.particlesNumber; i++) {
 
-        const rnd = getRandom(options.minSize as number, options.maxSize as number);
-        let particleSize: Vector2 = [rnd, rnd];
+        const rnd = getRandom(minSize, maxSize);
+        const particleSize: Vector2 = [rnd, rnd];
 
+        // handle case when provided SVG path data -------------
         if(options.svgPathData && options.svgPathData.length > 0){
+
+            // get random SVG shape from the provided list, and calculate it's size
             svgPathData = getRandomItemFromArray(options.svgPathData);
             const bbox = getPathBBox(svgPathData);
 
@@ -30,12 +45,13 @@ export const createParticles = (options: ISettings, state: IState) : IParticle[]
             }
         }
 
-        let color = '#000';
+        let color;
 
         if(options.particlesColors && options.particlesColors.length > 0){
             color = getRandomItemFromArray(options.particlesColors);
         }
         else{
+            // when no color is provided ---> get random color
             color = getRandomHexColor();
         }
 
@@ -48,8 +64,8 @@ export const createParticles = (options: ISettings, state: IState) : IParticle[]
                 getRandom(0, $canvas.height),
             ],
             speed: [
-                getRandom(options.minSpeed as number, options.maxSpeed as number),
-                getRandom(options.minSpeed as number, options.maxSpeed as number),
+                getRandom(minSpeed, maxSpeed),
+                getRandom(minSpeed, maxSpeed),
             ],
             size: particleSize,
 
@@ -65,7 +81,7 @@ export const createParticles = (options: ISettings, state: IState) : IParticle[]
             rotateCounterClockwise: getRandomBoolean(),
 
             // scale effect ---------------
-            scale: ((options.minScale as number) + (options.maxScale as number)) / 2,
+            scale: (minScale + maxScale) / 2,
             scaleDirection: getRandomItemFromArray([-1, 1]),
 
             // fade in/out effect ---------
@@ -107,30 +123,36 @@ export const moveParticle = (particle: IParticle, options: ISettings, state: ISt
     }
 
     if(options.scaleInOut){
+        const scaleStep = options.scaleStep as number;
+        const maxScale = options.maxScale as number;
+        const minScale = options.minScale as number;
+
         if(copy.scaleDirection > 0){
-            copy.scale += options.scaleStep as number;
+            copy.scale += scaleStep;
         }
         else{
-            copy.scale -= options.scaleStep as number;
+            copy.scale -= scaleStep;
         }
 
-        if(copy.scale > (options.maxScale as number)){
-            copy.scale = options.maxScale as number;
+        if(copy.scale > maxScale){
+            copy.scale = maxScale;
             copy.scaleDirection = -1;
         }
 
-        if(copy.scale < (options.minScale as number)){
-            copy.scale = options.minScale as number;
+        if(copy.scale < minScale){
+            copy.scale = minScale;
             copy.scaleDirection = 1;
         }
     }
 
     if(options.fadeInOut){
+        const opacityStep = options.opacityStep as number;
+
         if(copy.opacityDirection > 0){
-            copy.opacity += options.opacityStep as number;
+            copy.opacity += opacityStep;
         }
         else{
-            copy.opacity -= options.opacityStep as number;
+            copy.opacity -= opacityStep;
         }
 
         if(copy.opacity > 1){
@@ -187,26 +209,29 @@ export const drawParticle = (particle: IParticle, options: ISettings, state: ISt
     const path = new Path2D(particle.svgPathData);
     ctx.save();
 
-    const [cx, cy] = [particle.center[0] - w/2, particle.center[1] - h/2];
+    const halfWidth = w/2;
+    const halfHeight = h/2;
+
+    const [cx, cy] = [particle.center[0] - halfWidth, particle.center[1] - halfHeight];
     ctx.translate(cx, cy);
 
     if(particle.svgSize){
         // scale the path -------------------------------
-        ctx.translate(w / 2, h / 2);
+        ctx.translate(halfWidth, halfHeight);
         ctx.scale(...particle.svgSize);
-        ctx.translate(-w / 2, -h / 2);
+        ctx.translate(-halfWidth, -halfHeight);
     }
 
     if(options.rotate) {
-        ctx.translate(w / 2, h / 2);
+        ctx.translate(halfWidth, halfHeight);
         ctx.rotate(particle.angleRad);
-        ctx.translate(-w / 2, -h / 2);
+        ctx.translate(-halfWidth, -halfHeight);
     }
 
     if(options.scaleInOut){
-        ctx.translate(w / 2, h / 2);
+        ctx.translate(halfWidth, halfHeight);
         ctx.scale(particle.scale, particle.scale);
-        ctx.translate(-w / 2, -h / 2);
+        ctx.translate(-halfWidth, -halfHeight);
     }
 
     if(options.fadeInOut){

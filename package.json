@@ -20,7 +20,7 @@
     "example:watch": "node run/example.js -- watch",
     "test": "jest",
     "test:watch": "jest --watch",
-    "eslint": "eslint ./src/**",
+    "eslint": "eslint ./src/core/**",
     "typescript-declarations": "tsc --emitDeclarationOnly --noEmit false",
     "docs:website": "http-server ./docs",
     "docs:build": "node ./src/docs/generator/index.js",

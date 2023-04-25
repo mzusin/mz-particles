@@ -4,7 +4,6 @@ export const DEFAULTS: ISettings = {
     // canvas settings --------------
     canvasWidth: 600,
     canvasHeight: 600,
-    // canvasColor: 'rgb(17, 24, 39)',
 
     particlesNumber: 40,
     particlesColors: [],

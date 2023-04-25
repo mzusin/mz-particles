@@ -18,32 +18,29 @@
 </head>
 <body>
 
-  <script src="../../dist/mz-particles.min.js"></script>
+  <script src="../dist/mz-particles.min.js"></script>
   <script>
-      const $canvas = window.particles({
+      document.body.append(window.particles({
           canvasWidth: '100vw',
           canvasHeight: '100vh',
+
           canvasColor: 'rgb(17, 24, 39)',
           particlesNumber: 100,
 
-          minSize: 10,
-          maxSize: 30,
-
           particlesColors: [
-              '#c20cff', '#ff0000', '#ff00ef', '#eaeaea',
-              '#8e3da4', '#d387d2'
+              '#CEA262', '#f3a73a', '#fffc00', '#92ccfa',
+              '#5daed2', '#366d8c'
           ],
 
-          rotate: true,
-          svgPathData: [
-              'M9.5 0 19 19H0z',
-              //'M18.5 0 37 18H0z',
-              //'m9 0 9 25H0z',
-              //'m0 0 32 25H0z',
-          ],
-      });
+          // scale effect -------
+          scaleInOut: true,
+          maxScale: 1.5,
+          minScale: 0.7,
+          scaleStep: 0.005,
 
-      document.body.append($canvas);
+          // fade in/out effect
+          fadeInOut: true,
+      }));
   </script>
 </body>
 </html>

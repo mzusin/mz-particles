@@ -9,7 +9,7 @@ export const DEFAULTS: ISettings = {
     particlesNumber: 40,
     particlesColors: [],
 
-    minSpeed: 0.5,
+    minSpeed: -2,
     maxSpeed: 2,
 
     minSize: 5,

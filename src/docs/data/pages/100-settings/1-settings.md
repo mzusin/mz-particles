@@ -58,7 +58,7 @@ export interface ISettings {
             '#5daed2', '#366d8c'
         ],
         
-        minSpeed: 0.5,
+        minSpeed: -2,
         maxSpeed: 2,
         minSize: 10,
         maxSize: 30,

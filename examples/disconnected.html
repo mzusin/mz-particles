@@ -18,13 +18,15 @@
 </head>
 <body>
 
-  <script src="../../dist/mz-particles.min.js"></script>
+  <script src="../dist/mz-particles.min.js"></script>
   <script>
       const $canvas = window.particles({
           canvasWidth: '100vw',
           canvasHeight: '100vh',
           canvasColor: 'rgb(17, 24, 39)',
+
           particlesNumber: 100,
+          connected: false,
 
           minSize: 10,
           maxSize: 30,

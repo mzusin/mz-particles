@@ -6,7 +6,7 @@
 
 - **svgPathData?: string**[] - An optional array of strings representing the path data for the SVG shape that will be used to generate the particles. The svgPathData is a sequence of commands and coordinates that describe the shape of the SVG path. If this property is not specified, the circle shape will be used.
 
-- **minSpeed?: number** - The minimum speed that particles can travel at. This value should be specified in pixels per frame. If this property is not specified, the default value of **0.5** will be used.
+- **minSpeed?: number** - The minimum speed that particles can travel at. This value should be specified in pixels per frame. If this property is not specified, the default value of **-2** will be used.
 
 - **maxSpeed?: number** - The maximum speed that particles can travel at. This value should be specified in pixels per frame. If this property is not specified, the default value of **2** will be used.
 

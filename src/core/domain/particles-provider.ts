@@ -23,6 +23,13 @@ export const drawParticle = (particle: IParticle, ctx: CanvasRenderingContext2D,
     const [cx, cy] = [particle.center[0] - w/2, particle.center[1] - h/2];
     ctx.translate(cx, cy);
 
+    if(particle.svgSize){
+        // scale the path -------------------------------
+        ctx.translate(w / 2, h / 2);
+        ctx.scale(...particle.svgSize);
+        ctx.translate(-w / 2, -h / 2);
+    }
+
     if(options.rotate) {
         ctx.translate(w / 2, h / 2);
         ctx.rotate(particle.angleRad);
@@ -66,21 +73,26 @@ export const moveParticle = (particle: IParticle, $canvas: HTMLCanvasElement, op
 
 export const createParticles = (options: ISettings, $canvas: HTMLCanvasElement) : IParticle[] => {
     const particles: IParticle[] = [];
-    let particleSize: Vector2 = [0, 0];
-    let svgPathData : string|undefined = undefined;
+    let svgPathData: string|undefined = undefined;
+    let svgSize: Vector2|undefined = undefined;
 
     for(let i= 0; i< options.particlesNumber; i++) {
+
+        const rnd = getRandom(options.minSize as number, options.maxSize as number);
+        let particleSize: Vector2 = [rnd, rnd];
 
         if(options.svgPathData && options.svgPathData.length > 0){
             svgPathData = getRandomItemFromArray(options.svgPathData);
             const bbox = getPathBBox(svgPathData);
+
             if(bbox){
-                particleSize = [bbox.w, bbox.h];
+                svgSize = [
+                    particleSize[0] / bbox.w,
+                    particleSize[1] / bbox.h,
+                    // bbox.w / particleSize[0],
+                    // bbox.h / particleSize[1],
+                ];
             }
-        }
-        else{
-            const rnd = getRandom(options.minSize as number, options.maxSize as number);
-            particleSize = [rnd, rnd]
         }
 
         let color = '#000';
@@ -106,6 +118,7 @@ export const createParticles = (options: ISettings, $canvas: HTMLCanvasElement) 
             angleRad: 0,
             rotateCounterClockwise: getRandomBoolean(),
             svgPathData,
+            svgSize,
         });
     }
 

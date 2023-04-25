@@ -26,7 +26,12 @@ export interface IParticle {
     speed: Vector2; // [speed x, speed y]
     size: Vector2;
     color: string;
+
+    // rotation props ------------
     angleRad: number;
     rotateCounterClockwise: boolean;
+
+    // SVG path props ------------
     svgPathData?: string;
+    svgSize?: Vector2;
 }

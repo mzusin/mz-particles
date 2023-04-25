@@ -71,8 +71,8 @@ export interface ISettings {
         
         minSpeed: 0.5,
         maxSpeed: 2,
-        minSize: 5,
-        maxSize: 10,
+        minSize: 10,
+        maxSize: 30,
         
         maxConnectionSize: 150,
         connectionColor: [45, 56, 91],

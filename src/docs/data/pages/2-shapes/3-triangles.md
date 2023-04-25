@@ -8,6 +8,9 @@ const $canvas = particles({
   canvasHeight: '100vh',
   particlesNumber: 100,
 
+  minSize: 10,
+  maxSize: 30,
+
   particlesColors: [
       '#c20cff', '#ff0000', '#ff00ef', '#eaeaea',
       '#8e3da4', '#d387d2'

@@ -2,9 +2,9 @@ import { Vector2 } from 'mz-math';
 
 export interface ISettings {
 
+    $placeholder: HTMLElement;
+
     // canvas settings -------------------
-    canvasWidth?: number|string;
-    canvasHeight?: number|string;
     canvasColor?: string;
 
     // particles props -------------------

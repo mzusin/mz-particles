@@ -1,12 +1,13 @@
 ## Settings
 
-The **ISettings** interface defines the particles configuration options. These options include the canvas size and color, particle number, speed and size, connection settings, and more.
+The **ISettings** interface defines the particles configuration options. These options include the canvas color, particle number, speed and size, connection settings, and more.
 
 ```ts
 export interface ISettings {
+    
+    $placeholder: HTMLElement;
+    
     // canvas settings -------------------
-    canvasWidth?: number|string;
-    canvasHeight?: number|string;
     canvasColor?: string;
 
     // particles props -------------------
@@ -47,9 +48,8 @@ export interface ISettings {
 ```html
 <script src="mz-particles.min.js"></script>
 <script>
-    const $canvas = window.particles({
-        canvasWidth: 600,
-        canvasHeight: 600,
+    window.particles({
+        $placeholder: document.getElementById('placeholder'),
         canvasColor: 'rgb(17, 24, 39)',
         
         particlesNumber: 40,
@@ -69,7 +69,5 @@ export interface ISettings {
         svgPathData: 'm14.5 21.75-8.52289 4.48075 1.62773-9.49038-6.89516-6.72112 9.52888-1.38462L14.5 0l4.26144 8.63463 9.52888 1.38462-6.89516 6.72112 1.62773 9.49038z',
         rotate: true
     });
-
-    document.body.append($canvas);
 </script>
 ```

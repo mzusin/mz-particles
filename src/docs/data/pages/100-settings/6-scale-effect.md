@@ -11,7 +11,7 @@
 ## Usage Example
 
 ```ts
-const $canvas = window.particles({
+window.particles({
 
   // scale effect -----------
   scaleInOut: true,
@@ -20,8 +20,7 @@ const $canvas = window.particles({
   scaleStep: 0.005,
 
   // canvas settings ---------    
-  canvasWidth: '100vw',
-  canvasHeight: '100vh',
+  $placeholder: document.getElementById('placeholder'),
   canvasColor: 'rgb(17, 24, 39)',
   particlesNumber: 100,
 
@@ -40,6 +39,4 @@ const $canvas = window.particles({
       'm14.5 21.75-5.54891 6.14625.42239-8.26973-8.26973.42239L7.25 14.5 1.10375 8.95109l8.26973.42239-.42239-8.26973L14.5 7.25l5.54891-6.14625-.42239 8.26973 8.26973-.42239L21.75 14.5l6.14625 5.54891-8.26973-.42239.42239 8.26973z',
   ],
 });
-
-document.body.append($canvas);
 ```

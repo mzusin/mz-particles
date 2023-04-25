@@ -9,20 +9,18 @@
             margin: 0;
         }
 
-        canvas {
-            display: block;
+        #placeholder{
             width: 100vw;
             height: 100vh;
         }
     </style>
 </head>
 <body>
-
+  <div id="placeholder"></div>
   <script src="../dist/mz-particles.min.js"></script>
   <script>
       const $canvas = window.particles({
-          canvasWidth: '100vw',
-          canvasHeight: '100vh',
+          $placeholder: document.getElementById('placeholder'),
           canvasColor: 'rgb(17, 24, 39)',
 
           particlesNumber: 100,
@@ -44,8 +42,6 @@
               'm14.5 21.75-5.54891 6.14625.42239-8.26973-8.26973.42239L7.25 14.5 1.10375 8.95109l8.26973.42239-.42239-8.26973L14.5 7.25l5.54891-6.14625-.42239 8.26973 8.26973-.42239L21.75 14.5l6.14625 5.54891-8.26973-.42239.42239 8.26973z',
           ],
       });
-
-      document.body.append($canvas);
   </script>
 </body>
 </html>

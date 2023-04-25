@@ -16,8 +16,8 @@
   <link id="favicon-32" rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32.png" />
   <link id="favicon-16" rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16.png" />
 
-  <link rel="stylesheet" href="/css/styles.1682430137161.css" />
-  <!--<link rel="stylesheet" href="/js/index.1682430137161.css" />-->
+  <link rel="stylesheet" href="/css/styles.1682441689350.css" />
+  <!--<link rel="stylesheet" href="/js/index.1682441689350.css" />-->
 
 </head>
 <body class="h-screen flex flex-col font-roboto bg-white dark:bg-slate-900 dark:text-slate-100">
@@ -136,11 +136,12 @@
 
     <div class="p-4 overflow-y-auto h-full md:w-100-350 dark:bg-slate-800">
       <div class="w-800 max-w-full mx-auto my-10 leading-7 text-lg text-slate-800 dark:text-slate-200"><h2 class="text-3xl mb-8">Settings</h2>
-<p class="mb-4">The <strong class="font-bold">ISettings</strong> interface defines the particles configuration options. These options include the canvas size and color, particle number, speed and size, connection settings, and more.</p>
+<p class="mb-4">The <strong class="font-bold">ISettings</strong> interface defines the particles configuration options. These options include the canvas color, particle number, speed and size, connection settings, and more.</p>
 <pre class="hljs p-4 mb-4 rounded-md shadow-xl overflow-auto whitespace-pre-wrap text-base"><code><span class="hljs-keyword">export</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">ISettings</span> {
+    
+    <span class="hljs-attr">$placeholder</span>: <span class="hljs-title class_">HTMLElement</span>;
+    
     <span class="hljs-comment">// canvas settings -------------------</span>
-    canvasWidth?: <span class="hljs-built_in">number</span>|<span class="hljs-built_in">string</span>;
-    canvasHeight?: <span class="hljs-built_in">number</span>|<span class="hljs-built_in">string</span>;
     canvasColor?: <span class="hljs-built_in">string</span>;
 
     <span class="hljs-comment">// particles props -------------------</span>
@@ -177,9 +178,8 @@
 <h2 class="text-3xl mb-8">Example Usage</h2>
 <pre class="hljs p-4 mb-4 rounded-md shadow-xl overflow-auto whitespace-pre-wrap text-base"><code><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;mz-particles.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript">
-    <span class="hljs-keyword">const</span> $canvas = <span class="hljs-variable language_">window</span>.<span class="hljs-title function_">particles</span>({
-        <span class="hljs-attr">canvasWidth</span>: <span class="hljs-number">600</span>,
-        <span class="hljs-attr">canvasHeight</span>: <span class="hljs-number">600</span>,
+    <span class="hljs-variable language_">window</span>.<span class="hljs-title function_">particles</span>({
+        <span class="hljs-attr">$placeholder</span>: <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;placeholder&#x27;</span>),
         <span class="hljs-attr">canvasColor</span>: <span class="hljs-string">&#x27;rgb(17, 24, 39)&#x27;</span>,
         
         <span class="hljs-attr">particlesNumber</span>: <span class="hljs-number">40</span>,
@@ -199,8 +199,6 @@
         <span class="hljs-attr">svgPathData</span>: <span class="hljs-string">&#x27;m14.5 21.75-8.52289 4.48075 1.62773-9.49038-6.89516-6.72112 9.52888-1.38462L14.5 0l4.26144 8.63463 9.52888 1.38462-6.89516 6.72112 1.62773 9.49038z&#x27;</span>,
         <span class="hljs-attr">rotate</span>: <span class="hljs-literal">true</span>
     });
-
-    <span class="hljs-variable language_">document</span>.<span class="hljs-property">body</span>.<span class="hljs-title function_">append</span>($canvas);
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
 </div>
 
@@ -244,6 +242,6 @@
   </div>
 </footer>-->
 
-<script src="/js/index.1682430137161.js"></script>
+<script src="/js/index.1682441689350.js"></script>
 </body>
 </html>

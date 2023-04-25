@@ -3,8 +3,7 @@ import { Vector2 } from 'mz-math';
 declare module 'mz-particles' {
 
     export interface ISettings {
-        canvasWidth?: number | string;
-        canvasHeight?: number | string;
+        $placeholder: HTMLElement;
         canvasColor?: string;
         particlesNumber: number;
         particlesColors?: string[];

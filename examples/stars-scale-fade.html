@@ -9,20 +9,18 @@
             margin: 0;
         }
 
-        canvas {
-            display: block;
+        #placeholder{
             width: 100vw;
             height: 100vh;
         }
     </style>
 </head>
 <body>
-
+  <div id="placeholder"></div>
   <script src="../dist/mz-particles.min.js"></script>
   <script>
-      const $canvas = window.particles({
-          canvasWidth: '100vw',
-          canvasHeight: '100vh',
+      window.particles({
+          $placeholder: document.getElementById('placeholder'),
           canvasColor: 'rgb(17, 24, 39)',
           particlesNumber: 100,
 
@@ -53,8 +51,6 @@
           // fade in/out effect
           fadeInOut: true,
       });
-
-      document.body.append($canvas);
   </script>
 </body>
 </html>

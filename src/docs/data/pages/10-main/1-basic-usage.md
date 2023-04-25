@@ -17,14 +17,11 @@ Then you can import any function as follows:
 ```js
 import { particles } from 'mz-particles';
 
-const $canvas = particles({
-    canvasWidth: '600px',
-    canvasHeight: '300px',
+particles({
+    $placeholder: document.getElementById('placeholder'),
     canvasColor: 'rgb(17, 24, 39)',
     particlesNumber: 100,
 });
-
-document.body.append($canvas);
 ```
 
 You can also use it without bundlers. Download the latest [mz-particles.min.js](https://github.com/mzusin/mz-particles/blob/main/dist/mz-particles.min.js) script from GitHub and add it to the page as follows:
@@ -32,14 +29,11 @@ You can also use it without bundlers. Download the latest [mz-particles.min.js](
 ```html
 <script src="mz-particles.min.js"></script>
 <script>
-    const $canvas = window.particles({
-        canvasWidth: '100vw',
-        canvasHeight: '100vh',
+    window.particles({
+        $placeholder: document.getElementById('placeholder'),
         canvasColor: 'rgb(17, 24, 39)',
         particlesNumber: 100,
     });
-
-    document.body.append($canvas);
 </script>
 ```
   

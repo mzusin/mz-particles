@@ -2,7 +2,7 @@ import { ISettings, IState } from './interfaces';
 import { drawConnections } from './domain/connections-provider';
 import { createParticles, drawParticle, moveParticle } from './domain/particles-provider';
 import { DEFAULTS, mergeSettings } from './domain/settings-provider';
-import { canvas, IRectProps, rect, setCanvasSize } from 'mz-canvas';
+import { canvas, IRectProps, rect } from 'mz-canvas';
 import { animate } from 'mz-math';
 import tinycolor from 'tinycolor2';
 
@@ -46,15 +46,19 @@ const redraw = (options: ISettings, state: IState) => {
 export const init = (settings?: ISettings) => {
 
     const options = mergeSettings(DEFAULTS, settings);
+    if(!options.$placeholder) return;
+
+    const rect = options.$placeholder.getBoundingClientRect();
 
     const canvasProps = {
-        width: options.canvasWidth as number|string,
-        height: options.canvasHeight as number|string,
+        width: rect.width,
+        height: rect.height,
     };
 
     const { ctx, $canvas } = canvas(canvasProps);
-
     if(!ctx) return;
+
+    options.$placeholder.append($canvas);
 
     // parse connection lines color ----------
     const connectionsColor = tinycolor(options.connectionColor);
@@ -80,7 +84,9 @@ export const init = (settings?: ISettings) => {
         },
         restartOnResize: true,
         resizeCallback: () => {
-            setCanvasSize($canvas, ctx, canvasProps);
+            const rect = options.$placeholder.getBoundingClientRect();
+            $canvas.width = rect.width;
+            $canvas.height = rect.height;
             redraw(options, state);
         },
     });

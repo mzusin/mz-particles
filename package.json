@@ -1,6 +1,6 @@
 {
   "name": "mz-particles",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "TypeScript library for creating particle effects on canvas.",
   "type": "module",
   "types": "./dist/index.d.ts",
@@ -66,12 +66,10 @@
     "esbuild": "^0.17.17",
     "eslint": "^8.39.0",
     "markdown-documentation-maker": "^1.0.22",
-    "typescript": "^5.0.4"
-  },
-  "dependencies": {
-    "mz-canvas": "^1.0.12",
+    "mz-canvas": "^1.0.13",
     "mz-math": "^3.0.8",
     "mz-svg": "^1.0.10",
-    "tinycolor2": "^1.6.0"
+    "tinycolor2": "^1.6.0",
+    "typescript": "^5.0.4"
   }
 }

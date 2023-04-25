@@ -3,9 +3,8 @@
 This example creates a particle effect with rotated triangles.
 
 ```ts
-const $canvas = particles({
-  canvasWidth: '100vw',
-  canvasHeight: '100vh',
+particles({
+  $placeholder: document.getElementById('placeholder'),
   canvasColor: 'rgb(17, 24, 39)',
   particlesNumber: 100,
 
@@ -26,6 +25,4 @@ const $canvas = particles({
       //'m0 0 32 25H0z',
   ],
 });
-
-document.body.append($canvas);
 ```

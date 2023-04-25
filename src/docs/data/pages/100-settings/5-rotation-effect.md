@@ -5,14 +5,13 @@
 ## Usage Example
 
 ```ts
-const $canvas = window.particles({
+window.particles({
     
   // effects -----------------
   rotate: true,
     
   // canvas settings ---------  
-  canvasWidth: '100vw',
-  canvasHeight: '100vh',
+  $placeholder: document.getElementById('placeholder'),
   canvasColor: 'rgb(17, 24, 39)',
   particlesNumber: 100,
 
@@ -32,6 +31,4 @@ const $canvas = window.particles({
   ],
 
 });
-
-document.body.append($canvas);
 ```

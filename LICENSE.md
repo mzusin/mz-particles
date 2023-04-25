@@ -1,16 +1,21 @@
-## License
+MIT License
 
-The project has two types of licenses: open-source and commercial. In general, the project is free for non-commercial, trial and educational use, and paid for commercial use.
+Copyright (c) Miriam Zusin <miriam.zusin@gmail.com>
 
-## Open source license
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-The open source license can be used to create open source, trial and personal projects. The project uses the [GPLv3](https://www.gnu.org/licenses/gpl-3.0.html) open source license.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-Please note that releasing your application that uses this project under the [GPLv3](https://www.gnu.org/licenses/gpl-3.0.html) license, in turn, requires your application to be licensed under the GPLv3 license.
-
-## Commercial license
-
-The commercial license should be used to create commercial products and applications, without the provisions of the [GPLv3](https://www.gnu.org/licenses/gpl-3.0.html) license. With the commercial license, your code is kept proprietary, to yourself. If you want to use this project to develop commercial websites, themes, projects, and applications, the commercial license is the way to go.
-
-- [Purchase commercial license here](https://payhip.com/b/SeBVQ)
-- [Read more about commercial license](https://github.com/mzusin/index/blob/main/LICENSE.md)
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

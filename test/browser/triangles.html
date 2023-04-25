@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+    <style>
+        html, body{
+            padding: 0;
+            margin: 0;
+        }
+
+        canvas {
+            display: block;
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+
+  <script src="../../dist/mz-particles.min.js"></script>
+  <script>
+      const $canvas = window.particles({
+          canvasWidth: '100vw',
+          canvasHeight: '100vh',
+          particlesNumber: 100,
+
+          particlesColors: [
+              '#c20cff', '#ff0000', '#ff00ef', '#eaeaea',
+              '#8e3da4', '#d387d2'
+          ],
+
+          rotate: true,
+          svgPathData: [
+              'M9.5 0 19 19H0z',
+              //'M18.5 0 37 18H0z',
+              //'m9 0 9 25H0z',
+              //'m0 0 32 25H0z',
+          ],
+      });
+
+      document.body.append($canvas);
+  </script>
+</body>
+</html>

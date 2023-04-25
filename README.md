@@ -6,7 +6,28 @@
 ### Getting Started 
 - [Basic Usage](https://particles.mzsoft.org/pages/basic-usage.html)
 - [Settings](https://particles.mzsoft.org/pages/settings.html)
+### Shapes 
+- [Circles](https://particles.mzsoft.org/pages/circles.html)
+- [Stars](https://particles.mzsoft.org/pages/stars.html)
+- [Triangles](https://particles.mzsoft.org/pages/triangles.html)
 ------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

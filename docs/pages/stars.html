@@ -116,55 +116,64 @@
           <path d="m7 7 5 5-5 5m6-10 5 5-5 5"/>
         </svg>
 
-    </div><div class="flex flex-col" data-links><a href="/pages/basic-usage.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600 pb-2 text-sky-500">Basic Usage</a><a href="/pages/settings.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600  text-slate-500">Settings</a></div><div class="text-xl my-4 flex items-center cursor-pointer" data-collapsible-title data-opened="true" data-id="2-shapes">
+    </div><div class="flex flex-col" data-links><a href="/pages/basic-usage.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600 pb-2 text-slate-500">Basic Usage</a><a href="/pages/settings.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600  text-slate-500">Settings</a></div><div class="text-xl my-4 flex items-center cursor-pointer" data-collapsible-title data-opened="true" data-id="2-shapes">
         Shapes 
         <svg data-arrow xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="#626e7f" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="ml-2 rotate-90" viewBox="0 0 24 24">
           <path stroke="none" d="M0 0h24v24H0z"/>
           <path d="m7 7 5 5-5 5m6-10 5 5-5 5"/>
         </svg>
 
-    </div><div class="flex flex-col" data-links><a href="/pages/circles.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600 pb-2 text-slate-500">Circles</a><a href="/pages/stars.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600 pb-2 text-slate-500">Stars</a><a href="/pages/triangles.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600  text-slate-500">Triangles</a></div>
+    </div><div class="flex flex-col" data-links><a href="/pages/circles.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600 pb-2 text-slate-500">Circles</a><a href="/pages/stars.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600 pb-2 text-sky-500">Stars</a><a href="/pages/triangles.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600  text-slate-500">Triangles</a></div>
       </div>
     </div>
 
     <div class="p-4 overflow-y-auto h-full md:w-100-350 dark:bg-slate-800">
-      <div class="w-800 max-w-full mx-auto my-10 leading-7 text-lg text-slate-800 dark:text-slate-200"><h2 class="text-3xl mb-8">Basic Usage</h2>
-<p class="mb-4">To use the library, you need to install the module using npm:</p>
-<pre class="hljs p-4 mb-4 rounded-md shadow-xl overflow-auto whitespace-pre-wrap text-base"><code>npm install mz-particles</code></pre>
-<p class="mb-4">Or using Yarn:</p>
-<pre class="hljs p-4 mb-4 rounded-md shadow-xl overflow-auto whitespace-pre-wrap text-base"><code>yarn add mz-particles</code></pre>
-<p class="mb-4">Then you can import any function as follows:</p>
-<pre class="hljs p-4 mb-4 rounded-md shadow-xl overflow-auto whitespace-pre-wrap text-base"><code><span class="hljs-keyword">import</span> { particles } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;mz-particles&#x27;</span>;
+      <div class="w-800 max-w-full mx-auto my-10 leading-7 text-lg text-slate-800 dark:text-slate-200"><h1 class="text-3xl mb-8">Stars</h1>
+<p class="mb-4">This example creates a star particle effect that uses four-pointed stars, five-pointed stars, and eight-pointed stars.</p>
+<pre class="hljs p-4 mb-4 rounded-md shadow-xl overflow-auto whitespace-pre-wrap text-base"><code><span class="hljs-keyword">const</span> $canvas = <span class="hljs-title function_">particles</span>({
+  <span class="hljs-attr">canvasWidth</span>: <span class="hljs-string">&#x27;100vw&#x27;</span>,
+  <span class="hljs-attr">canvasHeight</span>: <span class="hljs-string">&#x27;100vh&#x27;</span>,
+  <span class="hljs-attr">particlesNumber</span>: <span class="hljs-number">100</span>,
 
-<span class="hljs-keyword">const</span> $canvas = <span class="hljs-title function_">particles</span>({
-    <span class="hljs-attr">canvasWidth</span>: <span class="hljs-string">&#x27;600px&#x27;</span>,
-    <span class="hljs-attr">canvasHeight</span>: <span class="hljs-string">&#x27;300px&#x27;</span>,
-    <span class="hljs-attr">particlesNumber</span>: <span class="hljs-number">100</span>,
+  <span class="hljs-attr">particlesColors</span>: [
+      <span class="hljs-string">&#x27;#CEA262&#x27;</span>, <span class="hljs-string">&#x27;#f3a73a&#x27;</span>, <span class="hljs-string">&#x27;#fffc00&#x27;</span>, <span class="hljs-string">&#x27;#92ccfa&#x27;</span>,
+      <span class="hljs-string">&#x27;#5daed2&#x27;</span>, <span class="hljs-string">&#x27;#366d8c&#x27;</span>
+  ],
+
+  <span class="hljs-comment">// star -------------</span>
+  <span class="hljs-attr">rotate</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">svgPathData</span>: [
+      <span class="hljs-string">&#x27;m14.5 21.75-8.52289 4.48075 1.62773-9.49038-6.89516-6.72112 9.52888-1.38462L14.5 0l4.26144 8.63463 9.52888 1.38462-6.89516 6.72112 1.62773 9.49038z&#x27;</span>,
+      <span class="hljs-string">&#x27;M14.5 21.75 4.24695 24.75305 7.25 14.5 4.24695 4.24695 14.5 7.25l10.25305-3.00305L21.75 14.5l3.00305 10.25305z&#x27;</span>,
+      <span class="hljs-string">&#x27;m14.5 21.75-5.54891 6.14625.42239-8.26973-8.26973.42239L7.25 14.5 1.10375 8.95109l8.26973.42239-.42239-8.26973L14.5 7.25l5.54891-6.14625-.42239 8.26973 8.26973-.42239L21.75 14.5l6.14625 5.54891-8.26973-.42239.42239 8.26973z&#x27;</span>,
+  ],
 });
 
 <span class="hljs-variable language_">document</span>.<span class="hljs-property">body</span>.<span class="hljs-title function_">append</span>($canvas);</code></pre>
-<p class="mb-4">You can also use it without bundlers. Download the latest <a href="https://github.com/mzusin/mz-particles/blob/main/dist/mz-particles.min.js" class="text-sky-500">mz-particles.min.js</a> script from GitHub and add it to the page as follows:</p>
-<pre class="hljs p-4 mb-4 rounded-md shadow-xl overflow-auto whitespace-pre-wrap text-base"><code><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;mz-particles.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript">
-    <span class="hljs-keyword">const</span> $canvas = <span class="hljs-variable language_">window</span>.<span class="hljs-title function_">particles</span>({
-        <span class="hljs-attr">canvasWidth</span>: <span class="hljs-string">&#x27;100vw&#x27;</span>,
-        <span class="hljs-attr">canvasHeight</span>: <span class="hljs-string">&#x27;100vh&#x27;</span>,
-        <span class="hljs-attr">particlesNumber</span>: <span class="hljs-number">100</span>,
-    });
-
-    <span class="hljs-variable language_">document</span>.<span class="hljs-property">body</span>.<span class="hljs-title function_">append</span>($canvas);
-</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
 </div>
 
-      <div class="w-800 max-w-full mx-auto grid  gap-8 items-center text-slate-500">
+      <div class="w-800 max-w-full mx-auto grid lg:grid-cols-2 gap-8 items-center text-slate-500">
+<div class="flex justify-between items-start border border-slate-200 rounded p-4">
+  <a href="/pages/circles.html" title="" class="mr-4 hover:text-blue-500">
+    <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24">
+    <path stroke="none" d="M0 0h24v24H0z"/>
+    <path d="M5 12h14M5 12l6 6m-6-6 6-6"/>
+  </svg>
+  </a>
+  <div class="flex flex-col items-end justify-center">
+    <div class="mb-2 text-sm text-slate-300">Previous</div>
+    <a href="/pages/circles.html" title="" class="hover:text-blue-500">Circles</a>
+  </div>
+</div>      
+    
 <div class="flex justify-between items-start border border-slate-200 rounded p-4">
   
   <div class="flex flex-col justify-center">
     <div class="mb-2 text-sm text-slate-300">Next</div>
-    <a href="/pages/settings.html" title="" class="hover:text-blue-500">Settings</a>
+    <a href="/pages/triangles.html" title="" class="hover:text-blue-500">Triangles</a>
   </div>
   
-  <a href="/pages/settings.html" title="" class="mr-4 hover:text-blue-500">
+  <a href="/pages/triangles.html" title="" class="mr-4 hover:text-blue-500">
     <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24">
      <path stroke="none" d="M0 0h24v24H0z"/>
      <path d="M5 12h14m-6 6 6-6m-6-6 6 6"/>

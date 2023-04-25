@@ -1,1 +1,0 @@
-- accept classes and other canvas props

@@ -4,3 +4,4 @@ declare global {
         particles: typeof particles;
     }
 }
+export default particles;

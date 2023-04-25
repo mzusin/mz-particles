@@ -7,3 +7,5 @@ declare global {
 }
 
 window.particles = particles;
+
+export default particles;

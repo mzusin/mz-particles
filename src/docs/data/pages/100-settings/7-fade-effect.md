@@ -11,6 +11,7 @@ const $canvas = window.particles({
     
   // fade effect -------------
   fadeInOut: true,
+  opacityStep: 0.001,
 
   // canvas settings ---------  
   canvasWidth: '100vw',

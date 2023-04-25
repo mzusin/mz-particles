@@ -2,4 +2,4 @@ import { ISettings } from './interfaces';
 /**
  * Entry point.
  */
-export declare const init: (settings?: ISettings) => HTMLCanvasElement;
+export declare const init: (settings?: ISettings) => HTMLCanvasElement | undefined;

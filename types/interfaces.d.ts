@@ -37,5 +37,8 @@ export interface IParticle {
     opacityDirection: number;
 }
 export interface IState {
+    $canvas: HTMLCanvasElement;
+    ctx: CanvasRenderingContext2D;
     connectionRgbColor: [number, number, number, number];
+    particles: IParticle[];
 }

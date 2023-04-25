@@ -1,4 +1,4 @@
-import { IParticle, ISettings, IState } from './interfaces';
+import { ISettings, IState } from './interfaces';
 import { drawConnections } from './domain/connections-provider';
 import { createParticles, drawParticle, moveParticle } from './domain/particles-provider';
 import { DEFAULTS, mergeSettings } from './domain/settings-provider';
@@ -6,7 +6,9 @@ import { canvas, rect, setCanvasSize } from 'mz-canvas';
 import { animate } from 'mz-math';
 import tinycolor from 'tinycolor2';
 
-const redraw = (options: ISettings, $canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D, particles: IParticle[], state: IState) => {
+const redraw = (options: ISettings, state: IState) => {
+
+    const { $canvas, ctx } = state;
 
     rect({
         x: 0,
@@ -28,14 +30,14 @@ const redraw = (options: ISettings, $canvas: HTMLCanvasElement, ctx: CanvasRende
 
     // draw the particle connections -------------------------------
     if(options.connected){
-        drawConnections(options, ctx, particles, state);
+        drawConnections(options, state);
     }
 
     // draw the updated particles ------------------
-    for(let i= 0; i<particles.length; i++){
-        const particle = particles[i];
-        drawParticle(particle, ctx, options);
-        particles[i] = moveParticle(particle, $canvas, options);
+    for(let i= 0; i<state.particles.length; i++){
+        const particle = state.particles[i];
+        drawParticle(particle, options, state);
+        state.particles[i] = moveParticle(particle, options, state);
     }
 };
 
@@ -46,14 +48,6 @@ export const init = (settings?: ISettings) => {
 
     const options = mergeSettings(DEFAULTS, settings);
 
-    // parse connection lines color ----------
-    const connectionsColor = tinycolor(options.connectionColor);
-    const tConnectionsRGB = connectionsColor.toRgb();
-
-    const state: IState = {
-        connectionRgbColor: [tConnectionsRGB.r, tConnectionsRGB.g, tConnectionsRGB.b, tConnectionsRGB.a],
-    };
-
     const canvasProps = {
         width: options.canvasWidth as number|string,
         height: options.canvasHeight as number|string,
@@ -61,8 +55,21 @@ export const init = (settings?: ISettings) => {
 
     const { ctx, $canvas } = canvas(canvasProps);
 
+    if(!ctx) return;
+
+    // parse connection lines color ----------
+    const connectionsColor = tinycolor(options.connectionColor);
+    const tConnectionsRGB = connectionsColor.toRgb();
+
+    const state: IState = {
+        connectionRgbColor: [tConnectionsRGB.r, tConnectionsRGB.g, tConnectionsRGB.b, tConnectionsRGB.a],
+        particles: [],
+        ctx,
+        $canvas,
+    };
+
     // create random particles -----------------------------
-    const particles = createParticles(options, $canvas);
+    state.particles = createParticles(options, state);
 
     const api = animate({
 
@@ -70,7 +77,7 @@ export const init = (settings?: ISettings) => {
         // It receives an object of type IAnimationResult.
         callback: () => {
             if(!ctx) return;
-            redraw(options, $canvas, ctx, particles, state);
+            redraw(options, state);
         },
         restartOnResize: true,
         resizeCallback: () => {

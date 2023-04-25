@@ -6,6 +6,7 @@ This example creates a particle effect with rotated triangles.
 const $canvas = particles({
   canvasWidth: '100vw',
   canvasHeight: '100vh',
+  canvasColor: 'rgb(17, 24, 39)',
   particlesNumber: 100,
 
   minSize: 10,

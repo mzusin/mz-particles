@@ -7,6 +7,14 @@ import { animate } from 'mz-math';
 
 const redraw = (options: ISettings, $canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D, particles: IParticle[]) => {
 
+    rect({
+        x: 0,
+        y: 0,
+        w: $canvas.width,
+        h: $canvas.height,
+        clear: true,
+    }, ctx);
+
     if(options.canvasColor){
         rect({
             x: 0,

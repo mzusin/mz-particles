@@ -3,7 +3,7 @@ import { ISettings } from '../interfaces';
 export const DEFAULTS: ISettings = {
     canvasWidth: 600,
     canvasHeight: 600,
-    canvasColor: 'rgb(17, 24, 39)',
+    // canvasColor: 'rgb(17, 24, 39)',
 
     particlesNumber: 40,
     particlesColors: [],

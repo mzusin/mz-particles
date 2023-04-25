@@ -2,7 +2,7 @@
 
 **mzParticles** is a TypeScript library for creating particle effects on canvas.
 
-![mzParticles](https://github.com/mzusin/mz-particles/blob/main/preview/preview.mov?raw=true)
+![mzParticles](https://github.com/mzusin/mz-particles/blob/main/preview/preview.gif?raw=true)
 
 ## Documentation 🔖
 ### Main 

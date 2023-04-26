@@ -12,10 +12,11 @@ export const DEFAULTS: ISettings = {
 
     // connection lines ------------
     connected: true,
-    connectionSizeD: 0.1,
-    connectionSizeT: 0.15,
-    connectionSizeM: 0.15,
-    connectionColor: 'rgb(45, 56, 91)',
+    connectionColor: 'rgb(70,126,150)',
+    connectionSize: 0.09,
+    lgConnectionSize: 0.15,
+    mdConnectionSize: 0.2,
+    smConnectionSize: 0.2,
 
     // scale effect
     maxScale: 2,

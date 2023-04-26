@@ -9,9 +9,10 @@ export interface ISettings {
     minSpeed?: number;
     maxSpeed?: number;
     connected?: boolean;
-    connectionSizeD?: number;
-    connectionSizeT?: number;
-    connectionSizeM?: number;
+    connectionSize?: number;
+    smConnectionSize?: number;
+    mdConnectionSize?: number;
+    lgConnectionSize?: number;
     connectionColor?: string;
     svgPathData?: string[];
     rotate?: boolean;

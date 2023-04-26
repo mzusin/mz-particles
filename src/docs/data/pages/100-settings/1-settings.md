@@ -22,8 +22,11 @@ export interface ISettings {
 
     // connection lines -------------------
     connected?: boolean;
-    maxConnectionSize?: number;
     connectionColor?: string;
+    connectionSize?: number; // xlm <= 1280
+    smConnectionSize?: number; // <= 640
+    mdConnectionSize?: number; // <= 768
+    lgConnectionSize?: number; // <= 1024
 
     // SVG shapes -------------------------
     svgPathData?: string[];
@@ -62,9 +65,14 @@ export interface ISettings {
         maxSpeed: 2,
         minSize: 10,
         maxSize: 30,
-        
-        maxConnectionSize: 150,
-        connectionColor: 'rgb(45, 56, 91)',
+
+        // connection lines ------------
+        connected: true,
+        connectionColor: 'rgb(70,126,150)',
+        connectionSize: 0.09,
+        lgConnectionSize: 0.15,
+        mdConnectionSize: 0.2,
+        smConnectionSize: 0.2,
 
         svgPathData: 'm14.5 21.75-8.52289 4.48075 1.62773-9.49038-6.89516-6.72112 9.52888-1.38462L14.5 0l4.26144 8.63463 9.52888 1.38462-6.89516 6.72112 1.62773 9.49038z',
         rotate: true

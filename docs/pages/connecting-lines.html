@@ -16,8 +16,8 @@
   <link id="favicon-32" rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32.png" />
   <link id="favicon-16" rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16.png" />
 
-  <link rel="stylesheet" href="/css/styles.1682441689350.css" />
-  <!--<link rel="stylesheet" href="/js/index.1682441689350.css" />-->
+  <link rel="stylesheet" href="/css/styles.1682501812071.css" />
+  <!--<link rel="stylesheet" href="/js/index.1682501812071.css" />-->
 
 </head>
 <body class="h-screen flex flex-col font-roboto bg-white dark:bg-slate-900 dark:text-slate-100">
@@ -141,10 +141,22 @@
 <p class="mb-4"><strong class="font-bold">connected?: boolean;</strong> - If true, particles will be connected by lines. The default value is <strong class="font-bold">true</strong>.</p>
 </li>
 <li>
-<p class="mb-4"><strong class="font-bold">maxConnectionSize?: number</strong> - The maximum distance at which particles will be connected by lines. This value should be specified in pixels. If this property is not specified, the default value of <strong class="font-bold">150px</strong> will be used.</p>
+<p class="mb-4"><strong class="font-bold">connectionColor?: string</strong> - The color of the connections between particles. If this property is not specified, the default value of <strong class="font-bold">rgb(70,126,150)</strong> will be used.</p>
+</li>
+</ul>
+<h2 class="text-3xl mb-8">Connection Size</h2>
+<ul class="list-disc mb-10 ml-2 pl-2 leading-8">
+<li>
+<p class="mb-4"><strong class="font-bold">connectionSize?: number</strong> - The maximum distance at which particles will be connected by lines. If connectionSize = 1, all lines will be connected. If this property is not specified, the default value of <strong class="font-bold">0.09</strong> will be used.</p>
 </li>
 <li>
-<p class="mb-4"><strong class="font-bold">connectionColor?: string</strong> - The color of the connections between particles. If this property is not specified, the default value of <strong class="font-bold">rgb(45, 56, 91)</strong> will be used.</p>
+<p class="mb-4"><strong class="font-bold">lgConnectionSize?: number</strong> - The same as connectionSize, but for viewport &lt;= 1024 px. The default value is 0.15.</p>
+</li>
+<li>
+<p class="mb-4"><strong class="font-bold">mdConnectionSize?: number</strong> - The same as connectionSize, but for viewport &lt;= 768 px. The default value is 0.2.</p>
+</li>
+<li>
+<p class="mb-4"><strong class="font-bold">smConnectionSize?: number</strong> - The same as connectionSize, but for viewport &lt;= 640 px. The default value is 0.2.</p>
 </li>
 </ul>
 </div>
@@ -189,6 +201,6 @@
   </div>
 </footer>-->
 
-<script src="/js/index.1682441689350.js"></script>
+<script src="/js/index.1682501812071.js"></script>
 </body>
 </html>

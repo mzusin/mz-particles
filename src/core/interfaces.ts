@@ -19,10 +19,11 @@ export interface ISettings {
 
     // connection lines -------------------
     connected?: boolean;
-    connectionSizeD?: number;
-    connectionSizeT?: number;
-    connectionSizeM?: number;
     connectionColor?: string;
+    connectionSize?: number; // xlm <= 1280
+    smConnectionSize?: number; // <= 640
+    mdConnectionSize?: number; // <= 768
+    lgConnectionSize?: number; // <= 1024
 
     // SVG shapes -------------------------
     svgPathData?: string[];

@@ -16,8 +16,8 @@
   <link id="favicon-32" rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32.png" />
   <link id="favicon-16" rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16.png" />
 
-  <link rel="stylesheet" href="/css/styles.1682441689350.css" />
-  <!--<link rel="stylesheet" href="/js/index.1682441689350.css" />-->
+  <link rel="stylesheet" href="/css/styles.1682501812071.css" />
+  <!--<link rel="stylesheet" href="/js/index.1682501812071.css" />-->
 
 </head>
 <body class="h-screen flex flex-col font-roboto bg-white dark:bg-slate-900 dark:text-slate-100">
@@ -156,8 +156,11 @@
 
     <span class="hljs-comment">// connection lines -------------------</span>
     connected?: <span class="hljs-built_in">boolean</span>;
-    maxConnectionSize?: <span class="hljs-built_in">number</span>;
     connectionColor?: <span class="hljs-built_in">string</span>;
+    connectionSize?: <span class="hljs-built_in">number</span>; <span class="hljs-comment">// xlm &lt;= 1280</span>
+    smConnectionSize?: <span class="hljs-built_in">number</span>; <span class="hljs-comment">// &lt;= 640</span>
+    mdConnectionSize?: <span class="hljs-built_in">number</span>; <span class="hljs-comment">// &lt;= 768</span>
+    lgConnectionSize?: <span class="hljs-built_in">number</span>; <span class="hljs-comment">// &lt;= 1024</span>
 
     <span class="hljs-comment">// SVG shapes -------------------------</span>
     svgPathData?: <span class="hljs-built_in">string</span>[];
@@ -192,9 +195,14 @@
         <span class="hljs-attr">maxSpeed</span>: <span class="hljs-number">2</span>,
         <span class="hljs-attr">minSize</span>: <span class="hljs-number">10</span>,
         <span class="hljs-attr">maxSize</span>: <span class="hljs-number">30</span>,
-        
-        <span class="hljs-attr">maxConnectionSize</span>: <span class="hljs-number">150</span>,
-        <span class="hljs-attr">connectionColor</span>: <span class="hljs-string">&#x27;rgb(45, 56, 91)&#x27;</span>,
+
+        <span class="hljs-comment">// connection lines ------------</span>
+        <span class="hljs-attr">connected</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-attr">connectionColor</span>: <span class="hljs-string">&#x27;rgb(70,126,150)&#x27;</span>,
+        <span class="hljs-attr">connectionSize</span>: <span class="hljs-number">0.09</span>,
+        <span class="hljs-attr">lgConnectionSize</span>: <span class="hljs-number">0.15</span>,
+        <span class="hljs-attr">mdConnectionSize</span>: <span class="hljs-number">0.2</span>,
+        <span class="hljs-attr">smConnectionSize</span>: <span class="hljs-number">0.2</span>,
 
         <span class="hljs-attr">svgPathData</span>: <span class="hljs-string">&#x27;m14.5 21.75-8.52289 4.48075 1.62773-9.49038-6.89516-6.72112 9.52888-1.38462L14.5 0l4.26144 8.63463 9.52888 1.38462-6.89516 6.72112 1.62773 9.49038z&#x27;</span>,
         <span class="hljs-attr">rotate</span>: <span class="hljs-literal">true</span>
@@ -242,6 +250,6 @@
   </div>
 </footer>-->
 
-<script src="/js/index.1682441689350.js"></script>
+<script src="/js/index.1682501812071.js"></script>
 </body>
 </html>

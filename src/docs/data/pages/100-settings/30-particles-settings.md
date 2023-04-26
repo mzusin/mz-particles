@@ -1,7 +1,5 @@
 # Particles Settings
 
-- **particlesNumber: number** - The number of particles to be created in the system. If this property is required.
-
 - **particlesColors?: string[]** - An array of strings representing the possible colors for the particles. The colors can be specified in any valid CSS color format (e.g. "#FFFFFF", "rgb(255, 0, 0)", "hsl(120, 100%, 50%)"). If this property is not specified or if the array is empty, the particles will be given random colors.
 
 - **svgPathData?: string**[] - An optional array of strings representing the path data for the SVG shape that will be used to generate the particles. The svgPathData is a sequence of commands and coordinates that describe the shape of the SVG path. If this property is not specified, the circle shape will be used.

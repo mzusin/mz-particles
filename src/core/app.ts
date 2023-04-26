@@ -5,6 +5,8 @@ import { DEFAULTS, mergeSettings } from './domain/settings-provider';
 import { canvas, IRectProps, rect } from 'mz-canvas';
 import { animate } from 'mz-math';
 import tinycolor from 'tinycolor2';
+import { getParticlesNumberPerViewport } from './domain/viewport-provider';
+import debounce from 'lodash-es/debounce'
 
 const redraw = (options: ISettings, state: IState) => {
 
@@ -69,10 +71,20 @@ export const init = (settings?: ISettings) => {
         particles: [],
         ctx,
         $canvas,
+        vpParticlesNumber: getParticlesNumberPerViewport(options),
     };
 
     // create random particles -----------------------------
     state.particles = createParticles(options, state);
+
+    const _debounce = debounce( () => {
+        const newParticlesNumber = getParticlesNumberPerViewport(options);
+        if(state.vpParticlesNumber === newParticlesNumber) return;
+
+        // reset particles list using current viewport settings
+        state.vpParticlesNumber = newParticlesNumber;
+        state.particles = createParticles(options, state);
+    }, options.resizeDebounceTime);
 
     const api = animate({
 
@@ -86,10 +98,13 @@ export const init = (settings?: ISettings) => {
         resizeCallback: () => {
             if(!options.$placeholder) return;
 
+            // reset canvas size according to the current viewport
             const rect = options.$placeholder.getBoundingClientRect();
             $canvas.width = rect.width;
             $canvas.height = rect.height;
+
             redraw(options, state);
+            _debounce();
         },
     });
 

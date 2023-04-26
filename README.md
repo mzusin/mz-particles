@@ -4,6 +4,9 @@
 
 https://user-images.githubusercontent.com/128969497/234193978-3ca7e010-a3e4-4705-a98e-1c1750d15688.mov
 
+## Live Examples
+- [math.mzsoft.org](https://math.mzsoft.org/)
+
 ## Features ✔️
 - Based on [TypeScript](https://www.typescriptlang.org/).
 - Supports rotation effect.
@@ -14,6 +17,7 @@ https://user-images.githubusercontent.com/128969497/234193978-3ca7e010-a3e4-4705
 - Can provide SVG path data as particle shapes.
 - Size, color and shape of particles are customizable.
 - The library handles window resizes.
+- The number of particles and the size of the connecting lines can be different on different devices.
 
 ## Documentation 🔖
 ### Main 
@@ -25,12 +29,37 @@ https://user-images.githubusercontent.com/128969497/234193978-3ca7e010-a3e4-4705
 ### Settings 
 - [Settings](https://particles.mzsoft.org/pages/settings.html)
 - [Canvas Settings](https://particles.mzsoft.org/pages/canvas-settings.html)
+- [Particles Number](https://particles.mzsoft.org/pages/particles-number.html)
 - [Particles Settings](https://particles.mzsoft.org/pages/particles-settings.html)
 - [Connecting Lines](https://particles.mzsoft.org/pages/connecting-lines.html)
 - [Rotation Effect](https://particles.mzsoft.org/pages/rotation-effect.html)
 - [Scale Effect](https://particles.mzsoft.org/pages/scale-effect.html)
 - [Fade Effect](https://particles.mzsoft.org/pages/fade-effect.html)
 ------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -130,25 +130,35 @@
           <path d="m7 7 5 5-5 5m6-10 5 5-5 5"/>
         </svg>
 
-    </div><div class="flex flex-col" data-links><a href="/pages/settings.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600 pb-2 text-slate-500">Settings</a><a href="/pages/canvas-settings.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600 pb-2 text-sky-500">Canvas Settings</a><a href="/pages/particles-number.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600 pb-2 text-slate-500">Particles Number</a><a href="/pages/particles-settings.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600 pb-2 text-slate-500">Particles Settings</a><a href="/pages/connecting-lines.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600 pb-2 text-slate-500">Connecting Lines</a><a href="/pages/rotation-effect.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600 pb-2 text-slate-500">Rotation Effect</a><a href="/pages/scale-effect.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600 pb-2 text-slate-500">Scale Effect</a><a href="/pages/fade-effect.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600  text-slate-500">Fade Effect</a></div>
+    </div><div class="flex flex-col" data-links><a href="/pages/settings.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600 pb-2 text-slate-500">Settings</a><a href="/pages/canvas-settings.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600 pb-2 text-slate-500">Canvas Settings</a><a href="/pages/particles-number.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600 pb-2 text-sky-500">Particles Number</a><a href="/pages/particles-settings.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600 pb-2 text-slate-500">Particles Settings</a><a href="/pages/connecting-lines.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600 pb-2 text-slate-500">Connecting Lines</a><a href="/pages/rotation-effect.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600 pb-2 text-slate-500">Rotation Effect</a><a href="/pages/scale-effect.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600 pb-2 text-slate-500">Scale Effect</a><a href="/pages/fade-effect.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600  text-slate-500">Fade Effect</a></div>
       </div>
     </div>
 
     <div class="p-4 overflow-y-auto h-full md:w-100-350 dark:bg-slate-800">
-      <div class="w-800 max-w-full mx-auto my-10 leading-7 text-lg text-slate-800 dark:text-slate-200"><h1 class="text-3xl mb-8">Canvas Settings</h1>
+      <div class="w-800 max-w-full mx-auto my-10 leading-7 text-lg text-slate-800 dark:text-slate-200"><h1 class="text-3xl mb-8">Particles Number</h1>
+<ul class="list-disc mb-10 ml-2 pl-2 leading-8">
+<li><strong class="font-bold">particlesNumber: number</strong> - The number of particles to be created in the system. If this property is required.</li>
+</ul>
+<h2 class="text-3xl mb-8">Viewport Breakpoints</h2>
 <ul class="list-disc mb-10 ml-2 pl-2 leading-8">
 <li>
-<p class="mb-4"><strong class="font-bold">$placeholder: HTMLElement</strong> - The HTML element that will contain the particle system. The particle system will be generated and rendered within this element, and it will take the placeholder width and height.</p>
+<p class="mb-4"><strong class="font-bold">lgParticlesNumber?: number</strong> - The same as particlesNumber, but for viewport &lt;= 1024 px. The default value is 60.</p>
 </li>
 <li>
-<p class="mb-4"><strong class="font-bold">canvasColor?: string</strong> - The background color of the canvas. This should be specified as a string in CSS format (e.g. “#FFFFFF” for white, “#000000” for black). If this property is optional.</p>
+<p class="mb-4"><strong class="font-bold">mdParticlesNumber?: number</strong> - The same as particlesNumber, but for viewport &lt;= 768 px. The default value is 50.</p>
+</li>
+<li>
+<p class="mb-4"><strong class="font-bold">smParticlesNumber?: number</strong> - The same as particlesNumber, but for viewport &lt;= 640 px. The default value is 30.</p>
+</li>
+<li>
+<p class="mb-4"><strong class="font-bold">resizeDebounceTime: number</strong> - Specifies the delay time for particles to redraw when the window is resized. Value in milliseconds. The default value is 1000.</p>
 </li>
 </ul>
 </div>
 
       <div class="w-800 max-w-full mx-auto grid lg:grid-cols-2 gap-8 items-center text-slate-500">
 <div class="flex justify-between items-start border border-slate-200 rounded p-4">
-  <a href="/pages/settings.html" title="" class="mr-4 hover:text-blue-500">
+  <a href="/pages/canvas-settings.html" title="" class="mr-4 hover:text-blue-500">
     <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24">
     <path stroke="none" d="M0 0h24v24H0z"/>
     <path d="M5 12h14M5 12l6 6m-6-6 6-6"/>
@@ -156,7 +166,7 @@
   </a>
   <div class="flex flex-col items-end justify-center">
     <div class="mb-2 text-sm text-slate-300">Previous</div>
-    <a href="/pages/settings.html" title="" class="hover:text-blue-500">Settings</a>
+    <a href="/pages/canvas-settings.html" title="" class="hover:text-blue-500">Canvas Settings</a>
   </div>
 </div>      
     
@@ -164,10 +174,10 @@
   
   <div class="flex flex-col justify-center">
     <div class="mb-2 text-sm text-slate-300">Next</div>
-    <a href="/pages/particles-number.html" title="" class="hover:text-blue-500">Particles Number</a>
+    <a href="/pages/particles-settings.html" title="" class="hover:text-blue-500">Particles Settings</a>
   </div>
   
-  <a href="/pages/particles-number.html" title="" class="mr-4 hover:text-blue-500">
+  <a href="/pages/particles-settings.html" title="" class="mr-4 hover:text-blue-500">
     <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24">
      <path stroke="none" d="M0 0h24v24H0z"/>
      <path d="M5 12h14m-6 6 6-6m-6-6 6 6"/>

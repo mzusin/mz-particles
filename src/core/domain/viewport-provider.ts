@@ -1,7 +1,7 @@
 import { Vector2 } from 'mz-math';
 import { ISettings } from '../interfaces';
 
-// breakpoints for device resolutions
+// breakpoints for device resolutions -----------
 export const SM_BREAK_POINT = 640;
 export const MD_BREAK_POINT = 768;
 export const LG_BREAK_POINT = 1024;
@@ -32,4 +32,25 @@ export const getConnectionSizePerViewport = (options: ISettings, placeholderWidt
 
     // --- XL ----
     return options.connectionSize as number * placeholderWidth;
+};
+
+export const getParticlesNumberPerViewport = (options: ISettings) : number => {
+
+    const viewport = getViewPortSize();
+    const vw = viewport[0];
+
+    if(options.smParticlesNumber !== undefined && vw <= SM_BREAK_POINT){
+        return options.smParticlesNumber;
+    }
+
+    if(options.mdParticlesNumber !== undefined && vw <= MD_BREAK_POINT){
+        return options.mdParticlesNumber;
+    }
+
+    if(options.lgParticlesNumber !== undefined && vw <= LG_BREAK_POINT){
+        return options.lgParticlesNumber;
+    }
+
+    // --- XL ----
+    return options.particlesNumber as number;
 };

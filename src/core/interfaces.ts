@@ -8,7 +8,12 @@ export interface ISettings {
     canvasColor?: string;
 
     // particles props -------------------
-    particlesNumber: number;
+    particlesNumber: number; // xl <= 1280
+    lgParticlesNumber?: number, // <= 1024
+    mdParticlesNumber?: number, // <= 768
+    smParticlesNumber?: number, // <= 640
+    resizeDebounceTime?: number;
+
     particlesColors?: string[];
     minSize?: number;
     maxSize?: number;
@@ -20,10 +25,10 @@ export interface ISettings {
     // connection lines -------------------
     connected?: boolean;
     connectionColor?: string;
-    connectionSize?: number; // xlm <= 1280
-    smConnectionSize?: number; // <= 640
-    mdConnectionSize?: number; // <= 768
+    connectionSize?: number; // xl <= 1280
     lgConnectionSize?: number; // <= 1024
+    mdConnectionSize?: number; // <= 768
+    smConnectionSize?: number; // <= 640
 
     // SVG shapes -------------------------
     svgPathData?: string[];
@@ -71,4 +76,5 @@ export interface IState {
     ctx: CanvasRenderingContext2D;
     connectionRgbColor: [number, number, number, number];
     particles: IParticle[];
+    vpParticlesNumber: number; // particles number per current viewport
 }

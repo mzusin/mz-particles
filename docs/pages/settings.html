@@ -16,8 +16,8 @@
   <link id="favicon-32" rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32.png" />
   <link id="favicon-16" rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16.png" />
 
-  <link rel="stylesheet" href="/css/styles.1682501812071.css" />
-  <!--<link rel="stylesheet" href="/js/index.1682501812071.css" />-->
+  <link rel="stylesheet" href="/css/styles.1682505671423.css" />
+  <!--<link rel="stylesheet" href="/js/index.1682505671423.css" />-->
 
 </head>
 <body class="h-screen flex flex-col font-roboto bg-white dark:bg-slate-900 dark:text-slate-100">
@@ -130,7 +130,7 @@
           <path d="m7 7 5 5-5 5m6-10 5 5-5 5"/>
         </svg>
 
-    </div><div class="flex flex-col" data-links><a href="/pages/settings.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600 pb-2 text-sky-500">Settings</a><a href="/pages/canvas-settings.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600 pb-2 text-slate-500">Canvas Settings</a><a href="/pages/particles-settings.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600 pb-2 text-slate-500">Particles Settings</a><a href="/pages/connecting-lines.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600 pb-2 text-slate-500">Connecting Lines</a><a href="/pages/rotation-effect.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600 pb-2 text-slate-500">Rotation Effect</a><a href="/pages/scale-effect.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600 pb-2 text-slate-500">Scale Effect</a><a href="/pages/fade-effect.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600  text-slate-500">Fade Effect</a></div>
+    </div><div class="flex flex-col" data-links><a href="/pages/settings.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600 pb-2 text-sky-500">Settings</a><a href="/pages/canvas-settings.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600 pb-2 text-slate-500">Canvas Settings</a><a href="/pages/particles-number.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600 pb-2 text-slate-500">Particles Number</a><a href="/pages/particles-settings.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600 pb-2 text-slate-500">Particles Settings</a><a href="/pages/connecting-lines.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600 pb-2 text-slate-500">Connecting Lines</a><a href="/pages/rotation-effect.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600 pb-2 text-slate-500">Rotation Effect</a><a href="/pages/scale-effect.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600 pb-2 text-slate-500">Scale Effect</a><a href="/pages/fade-effect.html" title="" class="pl-3 border-l border-slate-150 dark:border-slate-600  text-slate-500">Fade Effect</a></div>
       </div>
     </div>
 
@@ -138,14 +138,19 @@
       <div class="w-800 max-w-full mx-auto my-10 leading-7 text-lg text-slate-800 dark:text-slate-200"><h2 class="text-3xl mb-8">Settings</h2>
 <p class="mb-4">The <strong class="font-bold">ISettings</strong> interface defines the particles configuration options. These options include the canvas color, particle number, speed and size, connection settings, and more.</p>
 <pre class="hljs p-4 mb-4 rounded-md shadow-xl overflow-auto whitespace-pre-wrap text-base"><code><span class="hljs-keyword">export</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">ISettings</span> {
-    
-    <span class="hljs-attr">$placeholder</span>: <span class="hljs-title class_">HTMLElement</span>;
-    
+
+    $placeholder?: <span class="hljs-title class_">HTMLElement</span>;
+
     <span class="hljs-comment">// canvas settings -------------------</span>
     canvasColor?: <span class="hljs-built_in">string</span>;
 
     <span class="hljs-comment">// particles props -------------------</span>
-    <span class="hljs-attr">particlesNumber</span>: <span class="hljs-built_in">number</span>;
+    <span class="hljs-attr">particlesNumber</span>: <span class="hljs-built_in">number</span>; <span class="hljs-comment">// xl &lt;= 1280</span>
+    lgParticlesNumber?: <span class="hljs-built_in">number</span>, <span class="hljs-comment">// &lt;= 1024</span>
+    mdParticlesNumber?: <span class="hljs-built_in">number</span>, <span class="hljs-comment">// &lt;= 768</span>
+    smParticlesNumber?: <span class="hljs-built_in">number</span>, <span class="hljs-comment">// &lt;= 640</span>
+    resizeDebounceTime?: <span class="hljs-built_in">number</span>;
+
     particlesColors?: <span class="hljs-built_in">string</span>[];
     minSize?: <span class="hljs-built_in">number</span>;
     maxSize?: <span class="hljs-built_in">number</span>;
@@ -157,10 +162,10 @@
     <span class="hljs-comment">// connection lines -------------------</span>
     connected?: <span class="hljs-built_in">boolean</span>;
     connectionColor?: <span class="hljs-built_in">string</span>;
-    connectionSize?: <span class="hljs-built_in">number</span>; <span class="hljs-comment">// xlm &lt;= 1280</span>
-    smConnectionSize?: <span class="hljs-built_in">number</span>; <span class="hljs-comment">// &lt;= 640</span>
-    mdConnectionSize?: <span class="hljs-built_in">number</span>; <span class="hljs-comment">// &lt;= 768</span>
+    connectionSize?: <span class="hljs-built_in">number</span>; <span class="hljs-comment">// xl &lt;= 1280</span>
     lgConnectionSize?: <span class="hljs-built_in">number</span>; <span class="hljs-comment">// &lt;= 1024</span>
+    mdConnectionSize?: <span class="hljs-built_in">number</span>; <span class="hljs-comment">// &lt;= 768</span>
+    smConnectionSize?: <span class="hljs-built_in">number</span>; <span class="hljs-comment">// &lt;= 640</span>
 
     <span class="hljs-comment">// SVG shapes -------------------------</span>
     svgPathData?: <span class="hljs-built_in">string</span>[];
@@ -174,7 +179,7 @@
     minScale?: <span class="hljs-built_in">number</span>;
     scaleStep?: <span class="hljs-built_in">number</span>;
 
-    <span class="hljs-comment">// fade in/out effect -------------------</span>
+    <span class="hljs-comment">// fade effect -------------------</span>
     fadeInOut?: <span class="hljs-built_in">boolean</span>;
     opacityStep?: <span class="hljs-built_in">number</span>;
 }</code></pre>
@@ -184,8 +189,14 @@
     <span class="hljs-variable language_">window</span>.<span class="hljs-title function_">particles</span>({
         <span class="hljs-attr">$placeholder</span>: <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;placeholder&#x27;</span>),
         <span class="hljs-attr">canvasColor</span>: <span class="hljs-string">&#x27;rgb(17, 24, 39)&#x27;</span>,
+
+        <span class="hljs-comment">// particles number ---------------</span>
+        <span class="hljs-attr">particlesNumber</span>: <span class="hljs-number">70</span>,
+        <span class="hljs-attr">lgParticlesNumber</span>: <span class="hljs-number">60</span>,
+        <span class="hljs-attr">mdParticlesNumber</span>: <span class="hljs-number">50</span>,
+        <span class="hljs-attr">smParticlesNumber</span>: <span class="hljs-number">30</span>,
+        <span class="hljs-attr">resizeDebounceTime</span>: <span class="hljs-number">1000</span>,
         
-        <span class="hljs-attr">particlesNumber</span>: <span class="hljs-number">40</span>,
         <span class="hljs-attr">particlesColors</span>: [
             <span class="hljs-string">&#x27;#CEA262&#x27;</span>, <span class="hljs-string">&#x27;#f3a73a&#x27;</span>, <span class="hljs-string">&#x27;#fffc00&#x27;</span>, <span class="hljs-string">&#x27;#92ccfa&#x27;</span>,
             <span class="hljs-string">&#x27;#5daed2&#x27;</span>, <span class="hljs-string">&#x27;#366d8c&#x27;</span>
@@ -250,6 +261,6 @@
   </div>
 </footer>-->
 
-<script src="/js/index.1682501812071.js"></script>
+<script src="/js/index.1682505671423.js"></script>
 </body>
 </html>

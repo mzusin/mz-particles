@@ -1,7 +1,12 @@
 import { ISettings } from '../interfaces';
 
 export const DEFAULTS: ISettings = {
-    particlesNumber: 40,
+    particlesNumber: 70,
+    lgParticlesNumber: 60,
+    mdParticlesNumber: 50,
+    smParticlesNumber: 30,
+    resizeDebounceTime: 1000,
+
     particlesColors: [],
 
     minSpeed: -2,

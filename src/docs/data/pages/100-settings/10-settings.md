@@ -4,14 +4,19 @@ The **ISettings** interface defines the particles configuration options. These o
 
 ```ts
 export interface ISettings {
-    
-    $placeholder: HTMLElement;
-    
+
+    $placeholder?: HTMLElement;
+
     // canvas settings -------------------
     canvasColor?: string;
 
     // particles props -------------------
-    particlesNumber: number;
+    particlesNumber: number; // xl <= 1280
+    lgParticlesNumber?: number, // <= 1024
+    mdParticlesNumber?: number, // <= 768
+    smParticlesNumber?: number, // <= 640
+    resizeDebounceTime?: number;
+
     particlesColors?: string[];
     minSize?: number;
     maxSize?: number;
@@ -23,10 +28,10 @@ export interface ISettings {
     // connection lines -------------------
     connected?: boolean;
     connectionColor?: string;
-    connectionSize?: number; // xlm <= 1280
-    smConnectionSize?: number; // <= 640
-    mdConnectionSize?: number; // <= 768
+    connectionSize?: number; // xl <= 1280
     lgConnectionSize?: number; // <= 1024
+    mdConnectionSize?: number; // <= 768
+    smConnectionSize?: number; // <= 640
 
     // SVG shapes -------------------------
     svgPathData?: string[];
@@ -40,7 +45,7 @@ export interface ISettings {
     minScale?: number;
     scaleStep?: number;
 
-    // fade in/out effect -------------------
+    // fade effect -------------------
     fadeInOut?: boolean;
     opacityStep?: number;
 }
@@ -54,8 +59,14 @@ export interface ISettings {
     window.particles({
         $placeholder: document.getElementById('placeholder'),
         canvasColor: 'rgb(17, 24, 39)',
+
+        // particles number ---------------
+        particlesNumber: 70,
+        lgParticlesNumber: 60,
+        mdParticlesNumber: 50,
+        smParticlesNumber: 30,
+        resizeDebounceTime: 1000,
         
-        particlesNumber: 40,
         particlesColors: [
             '#CEA262', '#f3a73a', '#fffc00', '#92ccfa',
             '#5daed2', '#366d8c'

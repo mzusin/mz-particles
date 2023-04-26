@@ -25,7 +25,7 @@ export const createParticles = (options: ISettings, state: IState) : IParticle[]
 
     const minScale = options.minScale as number;
 
-    for(let i= 0; i< options.particlesNumber; i++) {
+    for(let i= 0; i< state.vpParticlesNumber; i++) {
 
         const rnd = getRandom(minSize, maxSize);
         const particleSize: Vector2 = [rnd, rnd];

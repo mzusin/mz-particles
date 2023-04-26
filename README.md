@@ -1,5 +1,8 @@
 # ミ☆ mzParticles ☆彡
 
+[![GitHub license](https://img.shields.io/github/license/mzusin/mz-particles)](https://github.com/mzusin/mz-particles/blob/main/LICENSE)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/mzusin/mz-particles)
+
 **mzParticles** is a TypeScript library for creating particle effects on canvas.
 
 https://user-images.githubusercontent.com/128969497/234193978-3ca7e010-a3e4-4705-a98e-1c1750d15688.mov

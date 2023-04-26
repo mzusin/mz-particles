@@ -21,6 +21,23 @@ pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5p
     color-scheme: dark;
 }
 
+.hp-gradient {
+    background: radial-gradient(#366d8c, #111927);
+}
+
+#hp-animation {
+    pointer-events: none;
+}
+
+#hp-animation canvas {
+    width: 100%;
+    height: 100%;
+}
+
+.text-shadow {
+    text-shadow: 0 0 1rem #081f2a;
+}
+
 @layer components {
     .w-350{
         width: 350px;

@@ -57,6 +57,7 @@ export interface IParticle {
     // SVG path props ------------
     svgPathData?: string;
     svgSize?: Vector2;
+    scaleSize?: Vector2;
 
     // rotation effect ------------
     angleRad: number;

@@ -1,6 +1,6 @@
 {
   "name": "mz-particles",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "TypeScript library for creating particle effects on canvas.",
   "type": "module",
   "types": "./dist/index.d.ts",

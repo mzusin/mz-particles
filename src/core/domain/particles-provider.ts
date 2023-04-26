@@ -16,6 +16,7 @@ export const createParticles = (options: ISettings, state: IState) : IParticle[]
 
     let svgPathData: string|undefined = undefined;
     let svgSize: Vector2|undefined = undefined;
+    let scaleSize: Vector2|undefined = undefined;
 
     const minSize = options.minSize as number;
     const maxSize = options.maxSize as number;
@@ -39,6 +40,10 @@ export const createParticles = (options: ISettings, state: IState) : IParticle[]
 
             if(bbox){
                 svgSize = [
+                    bbox.w,
+                    bbox.h,
+                ];
+                scaleSize = [
                     particleSize[0] / bbox.w,
                     particleSize[1] / bbox.h,
                 ];
@@ -75,6 +80,7 @@ export const createParticles = (options: ISettings, state: IState) : IParticle[]
             // SVG path props ----------
             svgPathData,
             svgSize,
+            scaleSize,
 
             // rotation effect ------------
             angleRad: 0,
@@ -204,7 +210,7 @@ export const drawParticle = (particle: IParticle, options: ISettings, state: ISt
         return;
     }
 
-    const [w, h] = particle.size;
+    const [w, h] = particle.svgSize ? particle.svgSize : particle.size;
 
     const path = new Path2D(particle.svgPathData);
     ctx.save();
@@ -215,10 +221,10 @@ export const drawParticle = (particle: IParticle, options: ISettings, state: ISt
     const [cx, cy] = [particle.center[0] - halfWidth, particle.center[1] - halfHeight];
     ctx.translate(cx, cy);
 
-    if(particle.svgSize){
+    if(particle.scaleSize){
         // scale the path -------------------------------
         ctx.translate(halfWidth, halfHeight);
-        ctx.scale(...particle.svgSize);
+        ctx.scale(...particle.scaleSize);
         ctx.translate(-halfWidth, -halfHeight);
     }
 

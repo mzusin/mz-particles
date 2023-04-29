@@ -19,12 +19,10 @@ export const settings = {
     plugins: [],
     banner: {
         js: `/* 
-MZ Particles
-Version: ${version}
-Author: Miriam Zusin     
-Contact: miriam.zusin@gmail.com
-Documentation: https://github.com/mzusin/mz-particles
-License: MIT License            
+MZParticles v${ version }
+https://github.com/mzusin/mz-particles
+MIT License     
+Copyright (c) 2023-present, Miriam Zusin       
 */`,
     },
 };
